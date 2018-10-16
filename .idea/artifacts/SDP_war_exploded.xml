@@ -29,8 +29,9 @@
         <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       </element>
       <element id="javaee-facet-resources" facet="SDP/web/Web" />
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources/webapp" />
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources/images" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/webapp/aspirantes.xhtml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/webapp/estudiantes.xhtml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/webapp/index.xhtml" />
     </root>
   </artifact>
 </component>
