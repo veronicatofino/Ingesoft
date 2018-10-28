@@ -12,6 +12,10 @@ import java.util.LinkedList;
 public class Course {
 
     /**
+     * todo: uri for the course, or implement a general url for the course and pass the data by the session
+     */
+
+    /**
      * Represents the course id
      */
     private final int id;
