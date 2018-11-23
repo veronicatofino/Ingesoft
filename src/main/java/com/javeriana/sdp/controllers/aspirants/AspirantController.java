@@ -25,7 +25,7 @@ import java.util.Map;
 public class AspirantController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView get(Model model) {
+    public ModelAndView get() {
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
             return new ModelAndView("index");

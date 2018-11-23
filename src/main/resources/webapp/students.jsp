@@ -1,8 +1,31 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>SDP Javeriana Cali</title>
+    <!-- Script for the button -->
+    <script type="text/javascript">
+        var offset = 0;
+        function add(key) {
+            var container = document.getElementById(key);
+            /** Notice the mapping '@' + offset has to be done to avoid any errors in the parsing process **/
+
+            /** Left side **/
+            var elementLeft = document.createElement("input");
+            elementLeft.setAttribute("type", "text");
+            elementLeft.setAttribute("name", key + "@" + offset + "@TITLE");
+            container.appendChild(elementLeft);
+            /** Right side **/
+            var elementRight = document.createElement("input");
+            elementRight.setAttribute("type", "text");
+            elementRight.setAttribute("name", key + "@" + offset + "@URL");
+            container.appendChild(elementRight);
+            container.appendChild(document.createElement("br"))
+            offset += 1
+        }
+    </script>
+
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -122,9 +145,11 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>SDP Javeriana</h1>
         <p> Bienvenido </p>
@@ -140,13 +165,49 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <core:forEach var="entry" items="${composition}">
-                    <h2> ${entry.key} </h2>
-                    <core:forEach var="pair" items="${entry.value}">
-                        <a style="padding-left: 2em" href="${pair.right}">${pair.left}.</a>
-                        </br>
+
+                <!-- Edit of the content -->
+                <core:if test="${buttonType=='0'}">
+                    <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
+                        <input type="submit" value="Guardar" />
+
+                        <!-- Edit of the content -->
+                        <core:forEach var="entry" items="${editComposition}">
+                            <!-- Main topic -->
+                            <h2> ${entry.key} </h2>
+                            <!-- Subtopics -->
+                            <core:forEach var="pair" items="${entry.value}">
+                                <core:set var = "tempString" value = "${pair.left}"/>
+                                <input type = "text" name = "${entry.key}@${pair.left}@TITLE" value = "${pair.left}" size="${fn:length(tempString)}"/>
+                                <core:set var = "tempString" value = "${pair.right}"/>
+                                <input type = "text" name = "${entry.key}@${pair.left}@URL" value = "${pair.right}" size="${fn:length(tempString)}"/>
+                                </br>
+                            </core:forEach>
+                            <!-- Button -->
+                            <div id="${entry.key}"> </div>
+                            <input type= "button" id="addrows" name="addrows" value="Add Rows '${entry.key}'" onclick= "add('${entry.key}');" >
+                            <br>
+                        </core:forEach>
+                    </form:form>
+                </core:if>
+
+                <!-- Displaying of the content -->
+                <core:if test="${buttonType=='1'}">
+                    <form:form id="editForm" method="post" action="estudiantes?editFlag=true">
+                        <input type="submit" value="Editar" />
+                    </form:form>
+
+                    <!-- Displaying of the content -->
+                    <core:forEach var="entry" items="${composition}">
+                        <h2> ${entry.key} </h2>
+                        <core:forEach var="pair" items="${entry.value}">
+                            <a style="padding-left: 2em" href="${pair.right}">${pair.left}.</a>
+                            </br>
+                        </core:forEach>
                     </core:forEach>
-                </core:forEach>
+                </core:if>
+
+
             </div>
         </div>
     </div>
