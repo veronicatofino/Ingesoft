@@ -141,7 +141,7 @@
     <div class="topnav">
         <a href="/">Inicio</a>
         <a href="/estudiantes">Estudiantes</a>
-        <a href="#">Profesores</a>
+        <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
     </div>
 

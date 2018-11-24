@@ -1,4 +1,4 @@
-package com.javeriana.sdp.controllers.students;
+package com.javeriana.sdp.controllers.postgrad;
 
 import com.javeriana.sdp.sql.SQLProvider;
 import com.javeriana.sdp.sql.SQLUtils;
@@ -8,23 +8,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 
 /**
- * Created by Sebastian on 18/11/18
+ * Created by Sebastian on 24/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
- * todo: Use prepared statements
- * todo: read the todo on the update function
  */
 @Controller
-@RequestMapping("/estudiantes")
-public class StudentsController {
+@RequestMapping("/postgrados")
+public class PostgradSelectorController {
 
     private static final String BUTTON_TYPE = "buttonType";
-    private static final int CATEGORY_ID = 1;
+    private static final int CATEGORY_ID = 3;
     private static final int EDIT_STATE = 1;
     private static final int SAVE_STATE = 0;
 
@@ -41,7 +37,7 @@ public class StudentsController {
         String content = SQLUtils.pollContent(CATEGORY_ID, connection);
         // Dispose the connection
         SQLProvider.getSingleton().dispose(connection);
-        return new ModelAndView("students").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE);
+        return new ModelAndView("postgrad").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE);
     }
 
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag"})
@@ -53,8 +49,8 @@ public class StudentsController {
         }
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
-        // todo: Notice for other courses you have to check if the data exists in the table before updating
-        // todo: if not then create it and then alter
+        /** dynamically allocating postgrads programs **/
+        SQLUtils.allocateDynamicAttributes(connection, modification.toLowerCase(), "programa?nombre");
         // Execute all the queries
         SQLUtils.executeQueries(connection, "UPDATE Content SET data = '" + modification + "' WHERE categoryId = " + CATEGORY_ID);
         // Free the connection
@@ -79,6 +75,6 @@ public class StudentsController {
         SQLProvider.getSingleton().dispose(connection);
         // Assign the attribute
         // Notice any changes on the button name 'BUTTON_TYPE' will imply modifications on the respective JSP page
-        return new ModelAndView("students").addObject("content", content).addObject(BUTTON_TYPE, EDIT_STATE);
+        return new ModelAndView("postgrad").addObject("content", content).addObject(BUTTON_TYPE, EDIT_STATE);
     }
 }

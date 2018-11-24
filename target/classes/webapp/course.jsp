@@ -2,6 +2,7 @@
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- Notice this website cannot have more hrefs or otherwise the back end will parse it as a course -->
 <head>
     <title>SDP Javeriana Cali</title>
     <script>
@@ -71,6 +72,7 @@
             /** Render the changes **/
             document.getElementById("realtimediv").innerHTML = textArea;
         }
+
 
     </script>
     <style type="text/css">
@@ -158,91 +160,91 @@
 </head>
 <body>
 
-    <div class="header">
-        <h1>SDP Javeriana</h1>
-        <p> Bienvenido </p>
-    </div>
+<div class="header">
+    <h1>SDP Javeriana</h1>
+    <p> Bienvenido </p>
+</div>
 
-    <div class="topnav">
-        <a href="/">Inicio</a>
-        <a href="/estudiantes">Estudiantes</a>
-        <a href="/postgrados">Postgrados</a>
-        <a href="/aspirantes">Aspirantes</a>
-    </div>
+<div class="topnav">
+    <a href="/">Inicio</a>
+    <a href="/estudiantes">Estudiantes</a>
+    <a href="/postgrados">Postgrados</a>
+    <a href="/aspirantes">Aspirantes</a>
+</div>
 
-    <div class="row">
-        <div class="leftcolumn">
-            <div class="card">
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
 
-                <!-- Edit of the content -->
-                <core:if test="${buttonType=='0'}">
-                    <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
-                        <!-- Store button -->
-                        <center><input type="submit" value="Guardar" /></center>
-                        <br>
-                        <center>
-                            <button type="button" onclick=negrilla()>Negrilla</button>
-                            <button type="button" onclick=tema()>Tema</button>
-                            <button type="button" onclick=subtema()>Subtema</button>
-                            <button type="button" onclick=centrar()>Centrar</button>
-                            <button type="button" onclick=derecha()>Derecha</button>
-                            <button type="button" onclick=link()>Link</button>
-                            <button type="button" onclick=imagen()>Imagen</button>
-                        </center>
-                        <br/>
-                        <!-- Edit of the content -->
-                        <table style="width:100%" id = "tableId">
-                            <tr>
-                                <td>
-                                    <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
-                                </td>
-                                <td>
-                                    <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:100%; margin:0; padding:0"></div>
-                                </td>
-                            </tr>
-                        </table>
-                    </form:form>
-                </core:if>
+            <!-- Edit of the content -->
+            <core:if test="${buttonType=='0'}">
+                <form:form id="editForm" method="post" action="curso?storeFlag=true&courseId=${courseId}">
+                    <!-- Store button -->
+                    <center><input type="submit" value="Guardar" /></center>
+                    <br>
+                    <center>
+                        <button type="button" onclick=negrilla()>Negrilla</button>
+                        <button type="button" onclick=tema()>Tema</button>
+                        <button type="button" onclick=subtema()>Subtema</button>
+                        <button type="button" onclick=centrar()>Centrar</button>
+                        <button type="button" onclick=derecha()>Derecha</button>
+                        <button type="button" onclick=link()>Link</button>
+                        <button type="button" onclick=imagen()>Imagen</button>
+                    </center>
+                    <br/>
+                    <!-- Edit of the content -->
+                    <table style="width:100%" id = "tableId">
+                        <tr>
+                            <td>
+                                <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
+                            </td>
+                            <td>
+                                <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:100%; margin:0; padding:0"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form:form>
+            </core:if>
+
+            <!-- Displaying of the content -->
+            <core:if test="${buttonType=='1'}">
+                <form:form id="editForm" method="post" action="curso?editFlag=true&courseId=${courseId}">
+                    <input type="submit" value="Editar" />
+                </form:form>
 
                 <!-- Displaying of the content -->
-                <core:if test="${buttonType=='1'}">
-                    <form:form id="editForm" method="post" action="estudiantes?editFlag=true">
-                        <input type="submit" value="Editar" />
-                    </form:form>
+                ${content}
 
-                    <!-- Displaying of the content -->
-                    ${content}
-
-                </core:if>
+            </core:if>
 
 
-            </div>
         </div>
     </div>
+</div>
 
-    <script>
-        /** Selection of a piece of text **/
-        document.querySelector('textarea').addEventListener('mouseup', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /**
-         * This happens when the mouse leaves the text area, selection needs to be the same as before
-         * otherwise it is cleared*
-         */
-        document.querySelector('textarea').addEventListener('mouseleave', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /** Keyboard listener **/
-        document.querySelector('textarea').addEventListener('keyup', function () {
-            applyLiveChanges();
-        });
-        /** Apply when the page loads **/
-        document.addEventListener("DOMContentLoaded", function() {
-            applyLiveChanges();
-        });
-    </script>
+<script>
+    /** Selection of a piece of text **/
+    document.querySelector('textarea').addEventListener('mouseup', function () {
+        leftSelection = this.selectionStart;
+        rightSelection = this.selectionEnd;
+    });
+    /**
+     * This happens when the mouse leaves the text area, selection needs to be the same as before
+     * otherwise it is cleared*
+     */
+    document.querySelector('textarea').addEventListener('mouseleave', function () {
+        leftSelection = this.selectionStart;
+        rightSelection = this.selectionEnd;
+    });
+    /** Keyboard listener **/
+    document.querySelector('textarea').addEventListener('keyup', function () {
+        applyLiveChanges();
+    });
+    /** Apply when the page loads **/
+    document.addEventListener("DOMContentLoaded", function() {
+        applyLiveChanges();
+    });
+</script>
 </body>
 
 </html>

@@ -30,6 +30,35 @@ public class SQLUtils {
     /** This class can't be instantiated **/
     private SQLUtils() { }
 
+    public static void allocateDynamicAttributes(final Connection connection, final String modification, final String attributeTag) {
+        // Parse and update the current postgrads **/
+        String [] parts = modification.split(">");
+        String [] subparts = null;
+        String normalized = "";
+        for (int i = 0; i < parts.length - 1; ++ i) {
+            // We are interested into this
+            // attributeTag = programa?nombre or curso?nombre
+            // <a href="programa?nombre=programaabc"
+            if (parts[i].contains(attributeTag)) {
+                // [<a href, programa?nombre, programaabc"]
+                // Notice we are interested in the 3rd element without the " (means - 1)
+                subparts = parts[i].split("=");
+                // We got it!
+                normalized = subparts[2].substring(0, subparts[2].length() - 1);
+                // Ask if this program is in the BD, if so continue otherwise insert it
+                boolean isEmpty = SQLUtils.isResultSetEmpty(connection, "SELECT * from ContentCategory WHERE name='" + normalized + "'");
+                if (isEmpty) {
+                    // Insert it into the content category table
+                    SQLUtils.executeQueries(connection, "INSERT INTO ContentCategory (id, name) VALUES(null, '" + normalized + "')");
+                    // Find the category id
+                    long id = (Long) (SQLUtils.getDataFromQuery(connection, "SELECT id from ContentCategory WHERE name='" + normalized + "'", "id").get(0)[0]);
+                    // Insert it into the content table
+                    SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES('" + id + "', '" + normalized + "')");
+                }
+            }
+        }
+    }
+
     /**
      * Polls all the updatable content from the web site
      * @param categoryId    the category of the content
@@ -76,6 +105,65 @@ public class SQLUtils {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    /**
+     * Checks if whether or not the result set is empty
+     * @param connection    the connection instance
+     * @param query the query instance
+     * @return  true if the result set returned empty, false otherwise
+     */
+    public static boolean isResultSetEmpty(final Connection connection, String query) {
+        Statement statement = null;
+        boolean answer = false;
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            if (!resultSet.next()) {
+                answer = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * Attemps a query to the DB and returns the attributes asked in the attributes array
+     * @param connection    the connection
+     * @param query the query
+     * @param attributes    the attributes to ask for
+     * @return  the result is a list which contains all the answers that match the attributes of the result set
+     */
+    public static LinkedList<Object []> getDataFromQuery(final Connection connection, final String query, final String ... attributes) {
+        Statement statement = null;
+        final LinkedList<Object []> attributesAnswer = new LinkedList<Object[]>();
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                Object [] ans = new Object[attributes.length];
+                for (int i = 0; i < attributes.length; ++ i) {
+                    ans[i] = resultSet.getObject(attributes[i]);
+                }
+                attributesAnswer.add(ans);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return attributesAnswer;
     }
 
     /**

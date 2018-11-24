@@ -36,6 +36,32 @@
             applyLiveChanges();
         }
 
+        function link() {
+            var link = prompt("Digite el link:", "");
+            modifySelectedTextArea("a href=\"" + link + "\"", "a");
+
+            applyLiveChanges();
+        }
+
+        function imagen() {
+            var link = prompt("Digite el link de la imagen:", "");
+            modifySelectedTextArea("img src=\"" + link + "\"", "img");
+
+            applyLiveChanges();
+        }
+
+        function centrar() {
+            modifySelectedTextArea("center", "center");
+
+            applyLiveChanges();
+        }
+
+        function derecha() {
+            modifySelectedTextArea("div style=\"text-align: right;\"", "div");
+
+            applyLiveChanges();
+        }
+
         function applyLiveChanges() {
             /** Pick up the table **/
             var table = document.getElementById("tableId");
@@ -128,11 +154,6 @@
             }
         }
 
-        .boxed {
-            width: 300px;
-            height: 300px;
-        }
-
     </style>
 </head>
 <body>
@@ -145,7 +166,7 @@
     <div class="topnav">
         <a href="/">Inicio</a>
         <a href="/estudiantes">Estudiantes</a>
-        <a href="#">Profesores</a>
+        <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
     </div>
 
@@ -160,9 +181,13 @@
                         <center><input type="submit" value="Guardar" /></center>
                         <br>
                         <center>
+                            <button type="button" onclick=negrilla()>Negrilla</button>
                             <button type="button" onclick=tema()>Tema</button>
                             <button type="button" onclick=subtema()>Subtema</button>
-                            <button type="button" onclick=negrilla()>Negrilla</button>
+                            <button type="button" onclick=centrar()>Centrar</button>
+                            <button type="button" onclick=derecha()>Derecha</button>
+                            <button type="button" onclick=link()>Link</button>
+                            <button type="button" onclick=imagen()>Imagen</button>
                         </center>
                         <br/>
                         <!-- Edit of the content -->
@@ -172,7 +197,7 @@
                                     <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
                                 </td>
                                 <td>
-                                    <div id="realtimediv" style="height: 725px; overflow: auto; width:50%"></div>
+                                    <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:100%; margin:0; padding:0"></div>
                                 </td>
                             </tr>
                         </table>
