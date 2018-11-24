@@ -31,28 +31,32 @@ public class SQLUtils {
     private SQLUtils() { }
 
     /**
-     * This method is in charge of polling from the database all the information related to any section among students and aspirants.
-     * This method also takes care of the composition of the main sections with the information mapping each main section with a set of topics
-     * in that section.
-     * @param connection    the sql connection instance
-     * @param section   the section to poll from the database
-     * @return  the result of the composition
+     * Polls all the updatable content from the web site
+     * @param categoryId    the category of the content
+     * @param connection    the connection instance
+     * @return  the string representing the content
      */
-    public static final HashMap<String, LinkedList<Pair<String, String>>> pollResourcesComposition(final Connection connection, final int section) {
-        // Polls the main sections (i.e Recursos, Informacion Financiera, ...)
-        final HashMap<Integer, String> mainSections = SQLUtils.pollResourcesMainSections(connection);
-        // Polls the information associated to the respective section (i.e If the section is 'Students' Then Guia de trabajo, Directrices, ... )
-        final HashMap<Integer, LinkedList<Pair<String, String>>> information = SQLUtils.pollInformativeSection(connection, section);
-
-        // Compose that information to dispense to the website frontend (Compose main section with information section)
-        final HashMap<String, LinkedList<Pair<String, String>>> composition = new HashMap<String, LinkedList<Pair<String, String>>>();
-        for (Map.Entry<Integer, LinkedList<Pair<String, String>>> entry : information.entrySet()) {
-            String categoryName = mainSections.get(entry.getKey());
-            composition.put(categoryName, entry.getValue());
+    public static String pollContent(int categoryId, Connection connection) {
+        Statement statement = null;
+        String data = "";
+        try {
+            final String query = "SELECT data FROM Content where categoryId = " + categoryId;
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            if (resultSet.next()) {
+                data = resultSet.getString("data");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-        return composition;
+        return data;
     }
-
     /**
      * Clears the data in a certain table
      * @param table the table to clear
@@ -75,109 +79,11 @@ public class SQLUtils {
     }
 
     /**
-     * Attempts to poll the resources stored in the DB.
-     * The mapping used here is Id -> Section name
-     * Exceptions may be thrown
-     * @param connection    the connection
-     * @return  a hashmap version of the main sections
-     */
-    private static final HashMap<Integer, String> pollResourcesMainSections(final Connection connection) {
-        final HashMap<Integer, String> answer = new HashMap<Integer, String>();
-        Statement statement = null;
-        try {
-            final String query = "SELECT * FROM RESOURCESSECTION";
-            statement = connection.createStatement();
-            final ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("Id");
-                final String name = resultSet.getString("Name");
-                answer.put(id, name);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return answer;
-    }
-
-    /**
-     * Attempts to poll the resources stored in the DB.
-     * The mapping used here is Section name -> Id
-     * Exceptions may be thrown
-     * @param connection    the connection
-     * @return  a hashmap version of the main sections
-     */
-    public static final HashMap<String, Integer> pollResourcesSections(final Connection connection) {
-        final HashMap<String, Integer> answer = new HashMap<String, Integer>();
-        Statement statement = null;
-        try {
-            final String query = "SELECT * FROM RESOURCESSECTION";
-            statement = connection.createStatement();
-            final ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                int id = resultSet.getInt("Id");
-                final String name = resultSet.getString("Name");
-                answer.put(name, id);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return answer;
-    }
-
-    /**
-     * Attempts to poll the informative resources stored in the DB.
-     * Exceptions may be thrown
-     * @param connection    the connection
-     * @param section  1 for the students section, 2 for the appplicant section
-     * @return  a hashmap version of the main sections
-     */
-    private static final HashMap<Integer, LinkedList<Pair<String, String>>> pollInformativeSection(final Connection connection, final int section) {
-        final HashMap<Integer, LinkedList<Pair<String, String>>> answer = new HashMap<Integer, LinkedList<Pair<String, String>>>();
-        String table = section == 1 ? "STUDENTSINFO" : "APPLICANTINFO";
-        Statement statement = null;
-        try {
-            final String query = "SELECT * FROM " + table;
-            statement = connection.createStatement();
-            final ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                final int resourceSection = resultSet.getInt("ResourceSection");
-                final String text = resultSet.getString("Text");
-                final String redirect = resultSet.getString("Redirect");
-                if (!answer.containsKey(resourceSection)) {
-                    answer.put(resourceSection, new LinkedList<Pair<String, String>>());
-                }
-                answer.get(resourceSection).add(new Pair<String, String>(text, redirect));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return answer;
-    }
-
-    /**
      * Executes multiple queries in one single pass
      * @param connection    the connection instance
      * @param queries   the queries
      */
-    public static void executeQueries(Connection connection, String[] queries) {
+    public static void executeQueries(Connection connection, String ... queries) {
         Statement statement = null;
         for (String query : queries) {
             try {
@@ -194,4 +100,6 @@ public class SQLUtils {
             }
         }
     }
+
+
 }

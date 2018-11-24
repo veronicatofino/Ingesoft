@@ -31,12 +31,12 @@ public class AspirantController {
             return new ModelAndView("index");
         }
         // Take a free connection
-        final Connection connection = SQLProvider.getSingleton().take();
+       /* final Connection connection = SQLProvider.getSingleton().take();
         // Poll the resources
         HashMap<String, LinkedList<Pair<String, String>>> composition = SQLUtils.pollResourcesComposition(connection, SQLUtils.ASPIRANT_SECTION);
         // Disposes the current connection
-        SQLProvider.getSingleton().dispose(connection);
+        SQLProvider.getSingleton().dispose(connection);*/
         // Assign the attribute
-        return new ModelAndView("aspirant").addObject("composition", composition);
+        return new ModelAndView("aspirant");
     }
 }

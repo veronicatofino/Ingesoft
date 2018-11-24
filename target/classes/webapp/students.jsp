@@ -4,27 +4,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>SDP Javeriana Cali</title>
-    <!-- Script for the button -->
-    <script type="text/javascript">
-        var offset = 0;
-        function add(key) {
-            /** Left side **/
-            var container = document.getElementById(key);
-
-            var elementLeft = document.createElement("input");
-            elementLeft.setAttribute("type", "text");
-            elementLeft.setAttribute("name", key + "@" + offset + "@TITLE");
-            container.appendChild(elementLeft);
-            /** Right side **/
-            var elementRight = document.createElement("input");
-            elementRight.setAttribute("type", "text");
-            elementRight.setAttribute("name", key + "@" + offset + "@URL");
-            container.appendChild(elementRight);
-            container.appendChild(document.createElement("br"))
-            offset += 1
-        }
-    </script>
-
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -168,26 +147,11 @@
                 <!-- Edit of the content -->
                 <core:if test="${buttonType=='0'}">
                     <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
-                        <input type="submit" value="Guardar" />
-
+                        <!-- Store button -->
+                        <center><input type="submit" value="Guardar" /></center>
                         <!-- Edit of the content -->
-                        <core:forEach var="entry" items="${editComposition}">
-                            <!-- Main topic -->
-                            <h2> ${entry.key} </h2>
-                            <!-- Subtopics -->
-                            <core:forEach var="pair" items="${entry.value}">
-                                <core:set var = "tempString" value = "${pair.left}"/>
-                                <input type = "text" name = "${entry.key}@${pair.left}@TITLE" value = "${pair.left}" size="${fn:length(tempString)}"/>
-                                <core:set var = "tempString" value = "${pair.right}"/>
-                                <input type = "text" name = "${entry.key}@${pair.left}@URL" value = "${pair.right}" size="${fn:length(tempString)}"/>
-                                </br>
-                            </core:forEach>
-                            <!-- Button -->
-                            <div id="${entry.key}"> </div>
-
-                            <input type= "button" id="addrows" name="addrows" value="Add Rows '${entry.key}'" onclick= "add('${entry.key}');" >
-                            <br>
-                        </core:forEach>
+                        <br/>
+                        <center><textarea name="modifiedContent" class="textarea" cols="100" rows="60"><core:out value="${editableContent}"/></textarea></center>
                     </form:form>
                 </core:if>
 
@@ -198,13 +162,8 @@
                     </form:form>
 
                     <!-- Displaying of the content -->
-                    <core:forEach var="entry" items="${composition}">
-                        <h2> ${entry.key} </h2>
-                        <core:forEach var="pair" items="${entry.value}">
-                            <a style="padding-left: 2em" href="${pair.right}">${pair.left}.</a>
-                            </br>
-                        </core:forEach>
-                    </core:forEach>
+                    ${content}
+
                 </core:if>
 
 
