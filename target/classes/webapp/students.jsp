@@ -4,6 +4,49 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>SDP Javeriana Cali</title>
+    <script>
+        var leftSelection;
+        var rightSelection;
+
+        function modifySelectedTextArea(openTag, closeTag) {
+            size = document.getElementById("textarea").value.length;
+            modifiedPart = document.getElementById("textarea").value;
+            modifiedPart = modifiedPart.substring(leftSelection, rightSelection);
+            modifiedPart = "<" + openTag  + ">" + modifiedPart + "</" + closeTag  + ">";
+            firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
+            secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
+            document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
+        }
+
+        function negrilla() {
+            modifySelectedTextArea("B", "B");
+
+            applyLiveChanges();
+        }
+
+        function tema() {
+            modifySelectedTextArea("h1", "h1");
+
+            applyLiveChanges();
+        }
+
+        function subtema() {
+            modifySelectedTextArea("p style=\"padding-left: 2em; display:inline\"", "p");
+
+            applyLiveChanges();
+        }
+
+        function applyLiveChanges() {
+            /** Pick up the table **/
+            var table = document.getElementById("tableId");
+            /** Ineficient perhaps?, replace newlines by html new line **/
+            var textArea = document.getElementById("textarea").value;
+            textArea = textArea.replace(/\n/g, "<br/>");
+            /** Render the changes **/
+            document.getElementById("realtimediv").innerHTML = textArea;
+        }
+
+    </script>
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -52,38 +95,7 @@
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 75%;
-        }
-
-        /* Right column */
-        .rightcolumn {
-            float: left;
-            width: 25%;
-            background-color: #f1f1f1;
-            padding-left: 20px;
-        }
-
-        /* Fake image */
-        .fakeimg {
-            background-color: azure;
             width: 100%;
-            padding: 20px;
-        }
-
-        .img_pnp {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://i.ytimg.com/vi/YX40hbAHx3s/maxresdefault.jpg");
-            background-size: 500px 200px;
-            padding: 20px;
-        }
-
-        .img_abet {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScKIzoptwk33zuZyawPorbm3vi2TLRdw_5woEZNFW60gjAm11nhQ");
-            background-size: 243px 200px;
-            padding: 20px;
         }
 
         /* Add a card effect for articles */
@@ -98,14 +110,6 @@
             content: "";
             display: table;
             clear: both;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background: #ddd;
-            margin-top: 20px;
         }
 
         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -124,7 +128,11 @@
             }
         }
 
-        #container p { display: inline }
+        .boxed {
+            width: 300px;
+            height: 300px;
+        }
+
     </style>
 </head>
 <body>
@@ -150,9 +158,24 @@
                     <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
                         <!-- Store button -->
                         <center><input type="submit" value="Guardar" /></center>
-                        <!-- Edit of the content -->
+                        <br>
+                        <center>
+                            <button type="button" onclick=tema()>Tema</button>
+                            <button type="button" onclick=subtema()>Subtema</button>
+                            <button type="button" onclick=negrilla()>Negrilla</button>
+                        </center>
                         <br/>
-                        <center><textarea name="modifiedContent" class="textarea" cols="100" rows="60"><core:out value="${editableContent}"/></textarea></center>
+                        <!-- Edit of the content -->
+                        <table style="width:100%" id = "tableId">
+                            <tr>
+                                <td>
+                                    <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
+                                </td>
+                                <td>
+                                    <div id="realtimediv" style="height: 725px; overflow: auto; width:50%"></div>
+                                </td>
+                            </tr>
+                        </table>
                     </form:form>
                 </core:if>
 
@@ -171,6 +194,30 @@
             </div>
         </div>
     </div>
+
+    <script>
+        /** Selection of a piece of text **/
+        document.querySelector('textarea').addEventListener('mouseup', function () {
+            leftSelection = this.selectionStart;
+            rightSelection = this.selectionEnd;
+        });
+        /**
+         * This happens when the mouse leaves the text area, selection needs to be the same as before
+         * otherwise it is cleared*
+         */
+        document.querySelector('textarea').addEventListener('mouseleave', function () {
+            leftSelection = this.selectionStart;
+            rightSelection = this.selectionEnd;
+        });
+        /** Keyboard listener **/
+        document.querySelector('textarea').addEventListener('keyup', function () {
+            applyLiveChanges();
+        });
+        /** Apply when the page loads **/
+        document.addEventListener("DOMContentLoaded", function() {
+            applyLiveChanges();
+        });
+    </script>
 </body>
 
 </html>
