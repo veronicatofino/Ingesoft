@@ -27,7 +27,7 @@ public class StudentsController {
     private static final int SAVE_STATE = 0;
 
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
-    public ModelAndView editAction(@RequestParam(value = "editFlag") boolean editFlagEnabled) {
+    public ModelAndView editAction() {
         /** Requesting to edit the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
@@ -43,13 +43,12 @@ public class StudentsController {
     }
 
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag"})
-    public ModelAndView storeAction(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification) {
         /** Requesting to persist the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
             return new ModelAndView("index");
         }
-        String modification = request.getParameter("modifiedContent");
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
         // todo: Notice for other courses you have to check if the data exists in the table before updating

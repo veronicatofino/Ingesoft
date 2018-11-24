@@ -124,6 +124,7 @@
             }
         }
 
+        #container p { display: inline }
     </style>
 </head>
 <body>
