@@ -106,8 +106,24 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
+                <core:if test="${buttonType=='1'}">
+                    <form:form id="editForm" method="post" action="eventosgeneral?storeFlag=true">
+                        <!-- Store button -->
+                        <center><input type="submit" value="Guardar" /></center>
+                        <br>
+                        Fecha del evento: <input id="date" type="date" name="date" required>
+                        <br>
+                        Nombre del evento: <input type="text" name="name" required>
+                    </form:form>
+                </core:if>
 
-                ${content}
+                <core:if test="${buttonType=='0'}">
+                    <form:form id="editForm" method="post" action="eventosgeneral?editFlag=true">
+                        <input type="submit" value="Crear evento" />
+                    </form:form>
+                    <br>
+                    ${content}
+                </core:if>
 
             </div>
         </div>

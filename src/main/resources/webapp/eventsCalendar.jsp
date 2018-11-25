@@ -106,52 +106,25 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <core:if test="${buttonType=='1'}">
-                    <form:form id="editForm" method="post" action="eventosgeneral?storeFlag=true">
-                        <!-- Store button -->
-                        <center><input type="submit" value="Guardar" /></center>
-                        <br>
-                        Fecha del evento: <input id="date" type="date" name="date" required>
-                        <br>
-                        Nombre del evento: <input type="text" name="name" required>
-                    </form:form>
-                </core:if>
-
-                <core:if test="${buttonType=='0'}">
-                    <form:form id="editForm" method="post" action="eventosgeneral?editFlag=true">
-                        <input type="submit" value="Crear evento" />
-                    </form:form>
-                    <br>
-                    ${content}
-                </core:if>
-
+                <br>
+                <table style="width:100%" id = "tableId">
+                    <core:forEach items="${eventsMapping}" var="entry">
+                        <tr>
+                            <center> <h2> ${entry.key} </h2> </center>
+                        </tr>
+                        <tr>
+                            <core:forEach items="${entry.value}" var="pair">
+                                <td>
+                                        <a href="/eventos?id=${pair.getRight()}"><center> <B> Evento: ${pair.getLeft()} </B> <br/>
+                                            <B> Fecha: ${pair.getMid()} </B> </center></a>
+                                </td>
+                            </core:forEach>
+                        </tr>
+                    </core:forEach>
+                </table>
             </div>
         </div>
     </div>
-
-    <script>
-        /** Selection of a piece of text **/
-        document.querySelector('textarea').addEventListener('mouseup', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /**
-         * This happens when the mouse leaves the text area, selection needs to be the same as before
-         * otherwise it is cleared*
-         */
-        document.querySelector('textarea').addEventListener('mouseleave', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /** Keyboard listener **/
-        document.querySelector('textarea').addEventListener('keyup', function () {
-            applyLiveChanges();
-        });
-        /** Apply when the page loads **/
-        document.addEventListener("DOMContentLoaded", function() {
-            applyLiveChanges();
-        });
-    </script>
 </body>
 
 </html>

@@ -23,7 +23,6 @@ import java.text.SimpleDateFormat;
 public class EventsSelectorController {
 
     private static final SimpleDateFormat MYSQL_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static final SimpleDateFormat DISPLAY_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     private static final String BUTTON_TYPE = "buttonType";
     private static final int EDIT_STATE = 1;
@@ -56,7 +55,6 @@ public class EventsSelectorController {
         if (date.length() == 0) {
             return defaultRender(id);
         }
-        System.out.println("DATE INPUT: " + date);
         // Represents the time to insert into the DB
         final String time = MYSQL_DATE_FORMAT.format(Date.valueOf(date));
         // Take a free connection

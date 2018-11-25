@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Connection;
+import java.sql.Timestamp;
+import java.util.LinkedList;
 
 /**
  * Created by Sebastian on 18/11/18
@@ -25,14 +27,23 @@ public class IndexController {
         String [] news = new String[4];
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
-        // Poll the content
+        // Poll the 'news' content
         for (int i = 1; i < 5; ++ i) {
             long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='noticias_" + i + "'", "id").get(0)[0];
             String content = SQLUtils.pollContent((int) id, connection);
             news[i - 1] = content.replaceAll("\n", "<br/>");
         }
+        // Poll the 'events' content
+        int limitVals = 2;
+        String query = "SELECT data, date from Content INNER JOIN Eventos ON (id = categoryId) WHERE date >= now() ORDER BY date ASC LIMIT " + limitVals;
+        final LinkedList<Object []> poll = SQLUtils.getDataFromQuery(connection, query, "data", "date");
+        String [][] eventArr = new String[limitVals][2];
+        for (int i = 0; i < 2; ++ i) {
+            eventArr[i][0] = ((Timestamp)poll.get(i)[1]).toString().split(" ")[0];
+            eventArr[i][1] = (String) poll.get(i)[0];
+        }
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
-        return new ModelAndView("index").addObject("newsArr", news);
+        return new ModelAndView("index").addObject("newsArr", news).addObject("eventArr", eventArr);
     }
 }

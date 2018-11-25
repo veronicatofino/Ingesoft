@@ -52,55 +52,15 @@
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 75%;
+            width: 70%;
         }
 
         /* Right column */
         .rightcolumn {
             float: left;
-            width: 25%;
+            width: 30%;
             background-color: #f1f1f1;
             padding-left: 20px;
-        }
-
-        .img_pnp {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://i.ytimg.com/vi/YX40hbAHx3s/maxresdefault.jpg");
-            background-size: 500px 200px;
-            padding: 20px;
-        }
-
-        .img_abet {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://www.utrgv.edu/csci/_files/images/abet.jpg");
-            background-size: 750px 200px;
-            padding: 20px;
-        }
-
-        .img_isr {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://www.javerianacali.edu.co/sites/ujc/files/styles/img_slider_1280_235/public/banner-isr-2018-1.jpg");
-            background-size: 270px 100px;
-            padding: 20px;
-        }
-
-        .img_soft_engineering {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://spectrum.ieee.org/image/MjkzMzk5NA.octet-stream");
-            background-size: 270px 100px;
-            padding: 20px;
-        }
-
-        .img_pnp_smbox {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://i0.wp.com/techtales.co/wp-content/uploads/2017/08/P-vs-NP-Problem.png?fit=345%2C340");
-            background-size: 270px 100px;
-            padding: 20px;
         }
 
         /* Add a card effect for articles */
@@ -171,16 +131,18 @@
                 <h1>Eventos</h1>
             </div>
             <div class="card">
-                <!-- <div class="img_isr" style="height:100px;"/> --->
-                <p>International School on Rewriting. Octubre 20, 2018.</p>
+                <div style="height: 725px; overflow: auto; width:100%; margin:0; padding:0">
+                    <p>${eventArr[0][0]}.</p>
+
+                    ${eventArr[0][1]}
+                </div>
             </div>
             <div class="card">
-                <!-- <div class="img_pnp_smbox" style="height:100px;"/> --->
-                <p>Presentacion de la prueba de P = NP. Octubre 22, 2018.</p>
-            </div>
-            <div class="card">
-                <!-- <div class="img_soft_engineering" style="height:100px;"/> -->
-                <p>Charla sobre Ingenieria de Software. Octubre 24, 2018.</p>
+                <div style="height: 725px; overflow: auto; width:100%; margin:0; padding:0">
+                    <p>${eventArr[1][0]}.</p>
+
+                    ${eventArr[1][1]}
+                </div>
             </div>
         </div>
     </div>

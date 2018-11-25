@@ -6,9 +6,12 @@ import com.javeriana.sdp.utils.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 /**
@@ -19,8 +22,53 @@ import java.util.LinkedList;
 @Controller
 @RequestMapping("/eventosgeneral")
 public class EventsController {
+    private static final SimpleDateFormat MYSQL_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private static final String EVENT_PREFIX = "evento_%";
+    private static final String BUTTON_TYPE = "buttonType";
+    private static final int EDIT_STATE = 1;
+    private static final int SAVE_STATE = 0;
+
+    @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
+    public ModelAndView editAction() {
+        /** Requesting to edit the content **/
+        if (!SQLProvider.getSingleton().hasFreeConnections()) {
+            // Notice this shouldn't happen because we won't have too many requests
+            return new ModelAndView("index");
+        }
+        return new ModelAndView("eventsGeneral").addObject(BUTTON_TYPE, EDIT_STATE);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "date", "name"})
+    public ModelAndView storeAction(@RequestParam(value = "date") String date, @RequestParam(value = "name") String name) {
+        /** Requesting to persist the content **/
+        if (!SQLProvider.getSingleton().hasFreeConnections()) {
+            // Notice this shouldn't happen because we won't have too many requests
+            return new ModelAndView("index");
+        }
+        // Take the date
+        if (date.length() == 0) {
+            return defaultRender();
+        }
+        // Parametrize the event
+        name = name.replaceAll(" ", "_").toLowerCase();
+        name = "evento_" + name;
+        // Represents the time to insert into the DB
+        final String time = MYSQL_DATE_FORMAT.format(Date.valueOf(date));
+        // Take a free connection
+        final Connection connection = SQLProvider.getSingleton().take();
+        // Execute all the queries
+        SQLUtils.executeQueries(connection, "INSERT INTO ContentCategory (id, name) VALUES (null, '" +  name + "')");
+        // Get the id assigned
+        long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='" + name + "'", "id").get(0)[0];
+        // Insert into the remaining tables
+        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES ('" + id + "', 'Evento')");
+        SQLUtils.executeQueries(connection, "INSERT INTO Eventos (id, date) VALUES ('" + id + "', '" + time + "')");
+        // Free the connection
+        SQLProvider.getSingleton().dispose(connection);
+        // Render the changes
+        return defaultRender();
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
@@ -49,7 +97,7 @@ public class EventsController {
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
         // Render the changes
-        return new ModelAndView("eventsGeneral").addObject("content", builder.toString());
+        return new ModelAndView("eventsGeneral").addObject("content", builder.toString()).addObject(BUTTON_TYPE, 0);
     }
 
 }
