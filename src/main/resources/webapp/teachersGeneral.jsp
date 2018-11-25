@@ -4,75 +4,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <title>SDP Javeriana Cali</title>
-    <script>
-        var leftSelection;
-        var rightSelection;
-
-        function modifySelectedTextArea(openTag, closeTag) {
-            size = document.getElementById("textarea").value.length;
-            modifiedPart = document.getElementById("textarea").value;
-            modifiedPart = modifiedPart.substring(leftSelection, rightSelection);
-            modifiedPart = "<" + openTag  + ">" + modifiedPart + "</" + closeTag  + ">";
-            firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
-            secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
-            document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
-        }
-
-        function negrilla() {
-            modifySelectedTextArea("B", "B");
-
-            applyLiveChanges();
-        }
-
-        function tema() {
-            modifySelectedTextArea("h1", "h1");
-
-            applyLiveChanges();
-        }
-
-        function subtema() {
-            modifySelectedTextArea("p style=\"padding-left: 2em; display:inline\"", "p");
-
-            applyLiveChanges();
-        }
-
-        function link() {
-            var link = prompt("Digite el link:", "");
-            modifySelectedTextArea("a href=\"" + link + "\"", "a");
-
-            applyLiveChanges();
-        }
-
-        function imagen() {
-            var link = prompt("Digite el link de la imagen:", "");
-            modifySelectedTextArea("img src=\"" + link + "\"", "img");
-
-            applyLiveChanges();
-        }
-
-        function centrar() {
-            modifySelectedTextArea("center", "center");
-
-            applyLiveChanges();
-        }
-
-        function derecha() {
-            modifySelectedTextArea("div style=\"text-align: right;\"", "div");
-
-            applyLiveChanges();
-        }
-
-        function applyLiveChanges() {
-            /** Pick up the table **/
-            var table = document.getElementById("tableId");
-            /** Ineficient perhaps?, replace newlines by html new line **/
-            var textArea = document.getElementById("textarea").value;
-            textArea = textArea.replace(/\n/g, "<br/>");
-            /** Render the changes **/
-            document.getElementById("realtimediv").innerHTML = textArea;
-        }
-
-    </script>
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -177,48 +108,22 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-
-                <!-- Edit of the content -->
-                <core:if test="${buttonType=='0'}">
-                    <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
+                <core:if test="${buttonType=='1'}">
+                    <form:form id="editForm" method="post" action="profesoresGeneral?storeFlag=true">
                         <!-- Store button -->
                         <center><input type="submit" value="Guardar" /></center>
                         <br>
-                        <center>
-                            <button type="button" onclick=negrilla()>Negrilla</button>
-                            <button type="button" onclick=tema()>Tema</button>
-                            <button type="button" onclick=subtema()>Subtema</button>
-                            <button type="button" onclick=centrar()>Centrar</button>
-                            <button type="button" onclick=derecha()>Derecha</button>
-                            <button type="button" onclick=link()>Link</button>
-                            <button type="button" onclick=imagen()>Imagen</button>
-                        </center>
-                        <br/>
-                        <!-- Edit of the content -->
-                        <table style="width:100%" id = "tableId">
-                            <tr>
-                                <td>
-                                    <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
-                                </td>
-                                <td>
-                                    <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:85%; margin:0; padding:0"></div>
-                                </td>
-                            </tr>
-                        </table>
+                        Nombre del profesor: <input type="text" name="name" required>
                     </form:form>
                 </core:if>
 
-                <!-- Displaying of the content -->
-                <core:if test="${buttonType=='1'}">
-                    <form:form id="editForm" method="post" action="estudiantes?editFlag=true">
-                        <input type="submit" value="Editar" />
+                <core:if test="${buttonType=='0'}">
+                    <form:form id="editForm" method="post" action="profesoresGeneral?editFlag=true">
+                        <input type="submit" value="Crear profesor" />
                     </form:form>
-
-                    <!-- Displaying of the content -->
+                    <br>
                     ${content}
-
                 </core:if>
-
 
             </div>
         </div>

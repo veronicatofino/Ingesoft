@@ -180,10 +180,9 @@
 
                 <!-- Edit of the content -->
                 <core:if test="${buttonType=='0'}">
-                    <form:form id="editForm" method="post" action="estudiantes?storeFlag=true">
+                    <form:form id="editForm" method="post" action="profesor?storeFlag=true&id=${id}">
                         <!-- Store button -->
                         <center><input type="submit" value="Guardar" /></center>
-                        <br>
                         <center>
                             <button type="button" onclick=negrilla()>Negrilla</button>
                             <button type="button" onclick=tema()>Tema</button>
@@ -210,8 +209,12 @@
 
                 <!-- Displaying of the content -->
                 <core:if test="${buttonType=='1'}">
-                    <form:form id="editForm" method="post" action="estudiantes?editFlag=true">
+                    <form:form id="editForm" method="post" action="profesor?editFlag=true&id=${id}">
                         <input type="submit" value="Editar" />
+                    </form:form>
+
+                    <form:form id="editForm" method="post" action="profesor?deleteFlag=true&id=${id}">
+                        <input type="submit" value="Eliminar" />
                     </form:form>
 
                     <!-- Displaying of the content -->

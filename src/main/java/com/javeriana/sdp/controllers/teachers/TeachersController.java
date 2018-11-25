@@ -1,4 +1,4 @@
-package com.javeriana.sdp.controllers.events;
+package com.javeriana.sdp.controllers.teachers;
 
 import com.javeriana.sdp.sql.SQLProvider;
 import com.javeriana.sdp.sql.SQLUtils;
@@ -11,49 +11,46 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 /**
- * Created by Sebastian on 24/11/18
+ * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
  */
 @Controller
-@RequestMapping("/eventosgeneral")
-public class EventsController {
-    private static final SimpleDateFormat MYSQL_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+@RequestMapping("/profesoresGeneral")
+public class TeachersController {
 
-    private static final String EVENT_PREFIX = "evento_%";
+    private static final String TEACHER_PREFIX = "profesor_";
     private static final String BUTTON_TYPE = "buttonType";
     private static final int EDIT_STATE = 1;
 
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
-    public ModelAndView createEvent() {
+    public ModelAndView createTeacher() {
         /** Requesting to edit the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
             return new ModelAndView("index");
         }
-        return new ModelAndView("eventsGeneral").addObject(BUTTON_TYPE, EDIT_STATE);
+        return new ModelAndView("teachersGeneral").addObject(BUTTON_TYPE, EDIT_STATE);
     }
 
-    @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "date", "name"})
-    public ModelAndView storeAction(@RequestParam(value = "date") String date, @RequestParam(value = "name") String name) {
+    @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "name"})
+    public ModelAndView storeAction(@RequestParam(value = "name") String name) {
         /** Requesting to persist the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
             return new ModelAndView("index");
         }
         // Take the date
-        if (date.length() == 0) {
+        if (name.length() == 0) {
             return defaultRender();
         }
         // Parametrize the event
         name = name.replaceAll(" ", "_").toLowerCase();
-        name = "evento_" + name;
+        name = TEACHER_PREFIX + name;
         // Represents the time to insert into the DB
-        final String time = MYSQL_DATE_FORMAT.format(Date.valueOf(date));
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
         // Execute all the queries
@@ -61,8 +58,7 @@ public class EventsController {
         // Get the id assigned
         long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='" + name + "'", "id").get(0)[0];
         // Insert into the remaining tables
-        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES ('" + id + "', 'Evento')");
-        SQLUtils.executeQueries(connection, "INSERT INTO Eventos (id, date) VALUES ('" + id + "', '" + time + "')");
+        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES ('" + id + "', 'Profesor: " + name + "')");
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
         // Render the changes
@@ -79,26 +75,23 @@ public class EventsController {
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
         // Poll the content
-        final LinkedList<Pair<Integer, String>> events = SQLUtils.pollCategoryContent(connection, EVENT_PREFIX);
+        final LinkedList<Pair<Integer, String>> events = SQLUtils.pollCategoryContent(connection, TEACHER_PREFIX + "%");
         // Generate the dynamic html
         final StringBuilder builder = new StringBuilder();
         for (Pair<Integer, String> element : events) {
             /** Normalize the string **/
-            String name = element.getRight().substring(EVENT_PREFIX.length() - 1, element.getRight().length());
+            String name = element.getRight().substring(TEACHER_PREFIX.length(), element.getRight().length());
             name = name.replaceAll("_", " ");
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
             /** Generate the dynamic html **/
-            builder.append("<a href=\"eventos?id=").append(element.getLeft()).append("\"><h2>").
+            builder.append("<a href=\"profesor?id=").append(element.getLeft()).append("\"><h2>").
                     append(name).
                     append("</h2></a>");
         }
-
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
         // Render the changes
-        return new ModelAndView("eventsGeneral").addObject("content", builder.toString()).addObject(BUTTON_TYPE, 0);
+        return new ModelAndView("teachersGeneral").addObject("content", builder.toString()).addObject(BUTTON_TYPE, 0);
     }
 
 }
-
-

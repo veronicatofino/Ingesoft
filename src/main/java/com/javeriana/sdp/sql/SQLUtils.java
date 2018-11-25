@@ -65,7 +65,7 @@ public class SQLUtils {
      * @param namePattern   the pattern
      * @return  A set of pairs respective to those in the DB who match the name pattern
      */
-    public static LinkedList<Pair<Integer, String>> pollCategory(final Connection connection, final String namePattern) {
+    public static LinkedList<Pair<Integer, String>> pollCategoryContent(final Connection connection, final String namePattern) {
         final LinkedList<Pair<Integer, String>> answer = new LinkedList<Pair<Integer, String>>();
         Statement statement = null;
         try {

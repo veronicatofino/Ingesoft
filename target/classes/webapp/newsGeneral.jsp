@@ -99,9 +99,10 @@
         <a href="/estudiantes">Estudiantes</a>
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
+        <a href="/profesoresGeneral">Profesores</a>
+        <a href="/eventoscalendario">Calendario de eventos</a>
         <a href="/noticiasgeneral">Noticias</a>
         <a href="/eventosgeneral">Eventos</a>
-        <a href="/eventoscalendario">Calendario de eventos</a>
     </div>
 
     <div class="row">
