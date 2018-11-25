@@ -9,9 +9,11 @@
         var leftSelection;
         var rightSelection;
 
-        function modifySelectedTextArea(tag) {
+        function modifySelectedTextArea(openTag, closeTag) {
             size = document.getElementById("textarea").value.length;
-            modifiedPart = tag;
+            modifiedPart = document.getElementById("textarea").value;
+            modifiedPart = modifiedPart.substring(leftSelection, rightSelection);
+            modifiedPart = "<" + openTag  + ">" + modifiedPart + "</" + closeTag  + ">";
             firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
             secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
             document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
@@ -19,6 +21,32 @@
 
         function negrilla() {
             modifySelectedTextArea("B", "B");
+
+            applyLiveChanges();
+        }
+
+        function tema() {
+            modifySelectedTextArea("h1", "h1");
+
+            applyLiveChanges();
+        }
+
+        function subtema() {
+            modifySelectedTextArea("p style=\"padding-left: 2em; display:inline\"", "p");
+
+            applyLiveChanges();
+        }
+
+        function link() {
+            var link = prompt("Digite el link:", "");
+            modifySelectedTextArea("a href=\"" + link + "\"", "a");
+
+            applyLiveChanges();
+        }
+
+        function imagen() {
+            var link = prompt("Digite el link de la imagen:", "");
+            modifySelectedTextArea("img src=\"" + link + "\"", "img");
 
             applyLiveChanges();
         }
@@ -35,24 +63,6 @@
             applyLiveChanges();
         }
 
-        function modifySelectedTextArea(openTag, closeTag) {
-            size = document.getElementById("textarea").value.length;
-            modifiedPart = document.getElementById("textarea").value;
-            modifiedPart = modifiedPart.substring(leftSelection, rightSelection);
-            modifiedPart = "<" + openTag  + ">" + modifiedPart + "</" + closeTag  + ">";
-            firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
-            secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
-            document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
-        }
-
-        function curso() {
-            var name = prompt("Digite el nombre del curso:", "");
-            // Replace all spaces by underscore so the DB can process this request
-            var normalized = name.replace(/ /g, "_");
-            modifySelectedTextArea("<a href=\"curso?nombre=" + normalized + "\"><h2>" + name + "</h2></a>");
-            applyLiveChanges();
-        }
-
         function applyLiveChanges() {
             /** Pick up the table **/
             var table = document.getElementById("tableId");
@@ -62,6 +72,7 @@
             /** Render the changes **/
             document.getElementById("realtimediv").innerHTML = textArea;
         }
+
 
     </script>
     <style type="text/css">
@@ -168,15 +179,18 @@
 
             <!-- Edit of the content -->
             <core:if test="${buttonType=='0'}">
-                <form:form id="editForm" method="post" action="programa?storeFlag=true&courseId=${courseId}">
+                <form:form id="editForm" method="post" action="noticias?storeFlag=true&newsId=${newsId}">
                     <!-- Store button -->
                     <center><input type="submit" value="Guardar" /></center>
                     <br>
                     <center>
-                        <button type="button" onclick=curso()>Curso</button>
                         <button type="button" onclick=negrilla()>Negrilla</button>
+                        <button type="button" onclick=tema()>Tema</button>
+                        <button type="button" onclick=subtema()>Subtema</button>
                         <button type="button" onclick=centrar()>Centrar</button>
                         <button type="button" onclick=derecha()>Derecha</button>
+                        <button type="button" onclick=link()>Link</button>
+                        <button type="button" onclick=imagen()>Imagen</button>
                     </center>
                     <br/>
                     <!-- Edit of the content -->
@@ -195,7 +209,7 @@
 
             <!-- Displaying of the content -->
             <core:if test="${buttonType=='1'}">
-                <form:form id="editForm" method="post" action="programa?editFlag=true&courseId=${courseId}">
+                <form:form id="editForm" method="post" action="noticias?editFlag=true&newsId=${newsId}">
                     <input type="submit" value="Editar" />
                 </form:form>
 

@@ -170,6 +170,7 @@
     <a href="/estudiantes">Estudiantes</a>
     <a href="/postgrados">Postgrados</a>
     <a href="/aspirantes">Aspirantes</a>
+    <a href="/noticiasgeneral">Noticias</a>
 </div>
 
 <div class="row">

@@ -170,6 +170,7 @@
     <a href="/estudiantes">Estudiantes</a>
     <a href="/postgrados">Postgrados</a>
     <a href="/aspirantes">Aspirantes</a>
+    <a href="/noticiasgeneral">Noticias</a>
 </div>
 
 <div class="row">
@@ -199,7 +200,7 @@
                                 <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
                             </td>
                             <td>
-                                <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:100%; margin:0; padding:0"></div>
+                                <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:85%; margin:0; padding:0"></div>
                             </td>
                         </tr>
                     </table>

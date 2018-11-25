@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <title>SDP Javeriana Cali</title>
     <style type="text/css">
@@ -52,55 +52,7 @@
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 75%;
-        }
-
-        /* Right column */
-        .rightcolumn {
-            float: left;
-            width: 25%;
-            background-color: #f1f1f1;
-            padding-left: 20px;
-        }
-
-        .img_pnp {
-            background-color: #aaa;
             width: 100%;
-            background-image: url("https://i.ytimg.com/vi/YX40hbAHx3s/maxresdefault.jpg");
-            background-size: 500px 200px;
-            padding: 20px;
-        }
-
-        .img_abet {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://www.utrgv.edu/csci/_files/images/abet.jpg");
-            background-size: 750px 200px;
-            padding: 20px;
-        }
-
-        .img_isr {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://www.javerianacali.edu.co/sites/ujc/files/styles/img_slider_1280_235/public/banner-isr-2018-1.jpg");
-            background-size: 270px 100px;
-            padding: 20px;
-        }
-
-        .img_soft_engineering {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://spectrum.ieee.org/image/MjkzMzk5NA.octet-stream");
-            background-size: 270px 100px;
-            padding: 20px;
-        }
-
-        .img_pnp_smbox {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://i0.wp.com/techtales.co/wp-content/uploads/2017/08/P-vs-NP-Problem.png?fit=345%2C340");
-            background-size: 270px 100px;
-            padding: 20px;
         }
 
         /* Add a card effect for articles */
@@ -132,11 +84,14 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>SDP Javeriana</h1>
+        <p> Bienvenido </p>
     </div>
 
     <div class="topnav">
@@ -150,39 +105,36 @@
     <div class="row">
         <div class="leftcolumn">
             <div class="card">
-                <h1>Ultimas Noticias</h1>
-            </div>
-            <div class="card">
-                    ${newsArr[0]}
-            </div>
-            <div class="card">
-                ${newsArr[1]}
-            </div>
-            <div class="card">
-                ${newsArr[2]}
-            </div>
-            <div class="card">
-                ${newsArr[3]}
-            </div>
-        </div>
-        <div class="rightcolumn">
-            <div class="card">
-                <h1>Eventos</h1>
-            </div>
-            <div class="card">
-                <!-- <div class="img_isr" style="height:100px;"/> --->
-                <p>International School on Rewriting. Octubre 20, 2018.</p>
-            </div>
-            <div class="card">
-                <!-- <div class="img_pnp_smbox" style="height:100px;"/> --->
-                <p>Presentacion de la prueba de P = NP. Octubre 22, 2018.</p>
-            </div>
-            <div class="card">
-                <!-- <div class="img_soft_engineering" style="height:100px;"/> -->
-                <p>Charla sobre Ingenieria de Software. Octubre 24, 2018.</p>
+
+                ${content}
+
             </div>
         </div>
     </div>
+
+    <script>
+        /** Selection of a piece of text **/
+        document.querySelector('textarea').addEventListener('mouseup', function () {
+            leftSelection = this.selectionStart;
+            rightSelection = this.selectionEnd;
+        });
+        /**
+         * This happens when the mouse leaves the text area, selection needs to be the same as before
+         * otherwise it is cleared*
+         */
+        document.querySelector('textarea').addEventListener('mouseleave', function () {
+            leftSelection = this.selectionStart;
+            rightSelection = this.selectionEnd;
+        });
+        /** Keyboard listener **/
+        document.querySelector('textarea').addEventListener('keyup', function () {
+            applyLiveChanges();
+        });
+        /** Apply when the page loads **/
+        document.addEventListener("DOMContentLoaded", function() {
+            applyLiveChanges();
+        });
+    </script>
 </body>
 
 </html>

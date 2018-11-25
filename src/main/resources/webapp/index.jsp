@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -143,6 +144,7 @@
         <a href="/estudiantes">Estudiantes</a>
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
+        <a href="/noticiasgeneral">Noticias</a>
     </div>
 
     <div class="row">
@@ -151,16 +153,16 @@
                 <h1>Ultimas Noticias</h1>
             </div>
             <div class="card">
-                <h3>Estudiante de postgrado de la Javeriana soluciona la conjetura de P = NP, Octubre 10, 2018</h3>
-                <!-- <div class="img_pnp" style="height:200px;"/> --->
-                <p>El estudiante Alejandro Hernandez soluciono el problema de la conjetura de P = NP en su tesis de doctorado.</p>
-                <p>Este importante y doloroso aporte nos brinda nuevos puntos de vista respecto a nuestra seguridad en internet, por ahora los bancos y otras entidades financieras estan invirtiendo mas dinero en su seguridad.</p>
+                    ${newsArr[0]}
             </div>
             <div class="card">
-                <h3>Javeriana Cali recibe acreditacion internacional, Febrero 10, 2018</h3>
-                <!-- <div class="img_abet" style="height:200px;"/> --->
-                <p>La Javeriana Cali reconocida por su increible rendimiento.</p>
-                <p>La Javeriana de Cali fue acreditada recientemente por ABET, empresa encargada de la acreditacion de programas de educacion universitaria garantizando los criterios de calidad para la profesion. </p>
+                ${newsArr[1]}
+            </div>
+            <div class="card">
+                ${newsArr[2]}
+            </div>
+            <div class="card">
+                ${newsArr[3]}
             </div>
         </div>
         <div class="rightcolumn">
