@@ -77,6 +77,14 @@
             clear: both;
         }
 
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 800px) {
             .leftcolumn, .rightcolumn {
@@ -148,6 +156,19 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class = "footer">
+        <form:form id="editForm" method="post" action="contacto?send=true">
+            <!-- Store button -->
+            <center><input type="submit" value="Enviar!" /></center>
+            <br>
+            Nombre del usuario: <input type="text" name="name" required>
+            Correo electronico: <input type="text" name="email" required>
+            <br><br>
+            <textarea name="message" class="textarea" id="textarea" style="height: 200px; width: 600px"></textarea>
+            <!-- Mensaje: <input type="text" name="message" required> -->
+        </form:form>
     </div>
 </body>
 

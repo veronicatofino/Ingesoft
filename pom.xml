@@ -21,6 +21,8 @@
         <mysql.version>5.1.39</mysql.version>
         <!-- JSTL Version -->
         <jstl.version>1.2</jstl.version>
+        <!-- Java Email Version -->
+        <java.email.version>1.4</java.email.version>
     </properties>
 
     <repositories>
@@ -71,6 +73,12 @@
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
+        </dependency>
+        <!-- Java EMAIL-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>${java.email.version}</version>
         </dependency>
 
     </dependencies>

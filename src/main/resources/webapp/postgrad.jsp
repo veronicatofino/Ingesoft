@@ -9,11 +9,11 @@
         var leftSelection;
         var rightSelection;
 
-        function modifySelectedTextArea(tag) {
+        function modifySelectedTextAreaSingle(tag) {
             size = document.getElementById("textarea").value.length;
             modifiedPart = tag;
             firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
-            secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
+            secondPart = document.getElementById("textarea").value.substring(leftSelection + 1, size);
             document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
         }
 
@@ -21,7 +21,7 @@
             var name = prompt("Digite el nombre del postgrado:", "");
             // Replace all spaces by underscore so the DB can process this request
             var normalized = name.replace(/ /g, "_");
-            modifySelectedTextArea("<a href=\"programa?nombre=" + normalized + "\"><h2>" + name + "</h2></a>");
+            modifySelectedTextAreaSingle("<a href=\"programa?nombre=" + normalized + "\"><h2>" + name + "</h2></a>");
             applyLiveChanges();
         }
 

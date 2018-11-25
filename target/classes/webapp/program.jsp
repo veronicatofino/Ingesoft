@@ -9,7 +9,7 @@
         var leftSelection;
         var rightSelection;
 
-        function modifySelectedTextArea(tag) {
+        function modifySelectedTextAreaSingle(tag) {
             size = document.getElementById("textarea").value.length;
             modifiedPart = tag;
             firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
@@ -49,7 +49,7 @@
             var name = prompt("Digite el nombre del curso:", "");
             // Replace all spaces by underscore so the DB can process this request
             var normalized = name.replace(/ /g, "_");
-            modifySelectedTextArea("<a href=\"curso?nombre=" + normalized + "\"><h2>" + name + "</h2></a>");
+            modifySelectedTextAreaSingle("<a href=\"curso?nombre=" + normalized + "\"><h2>" + name + "</h2></a>");
             applyLiveChanges();
         }
 

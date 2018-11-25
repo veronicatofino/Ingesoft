@@ -19,6 +19,7 @@ import java.sql.Connection;
 @RequestMapping("/curso")
 public class CourseController {
 
+    //www.puj.com/curso?editFlag=val1&courseId=val2
     private static final String BUTTON_TYPE = "buttonType";
     private static final int EDIT_STATE = 1;
     private static final int SAVE_STATE = 0;

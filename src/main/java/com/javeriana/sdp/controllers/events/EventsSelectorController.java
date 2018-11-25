@@ -49,7 +49,7 @@ public class EventsSelectorController {
         /** Requesting to edit the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests
-            return "redirect:/index";
+            return "redirect:/";
         }
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
