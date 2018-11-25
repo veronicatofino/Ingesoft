@@ -44,6 +44,26 @@ public class EventsSelectorController {
         return new ModelAndView("events").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE).addObject("id", id);
     }
 
+    @RequestMapping(method = RequestMethod.POST, params = {"deleteFlag", "id"})
+    public String deleteAction(@RequestParam(value = "id") int id) {
+        /** Requesting to edit the content **/
+        if (!SQLProvider.getSingleton().hasFreeConnections()) {
+            // Notice this shouldn't happen because we won't have too many requests
+            return "redirect:/index";
+        }
+        // Take a free connection
+        final Connection connection = SQLProvider.getSingleton().take();
+        // Delete a desired event
+        String delete1 = "DELETE FROM Eventos WHERE id = '" + id + "'";
+        String delete2 = "DELETE FROM ContentCategory WHERE id = '" + id + "'";
+        String delete3 = "DELETE FROM Content WHERE categoryId = '" + id + "'";
+        SQLUtils.executeQueries(connection, delete1, delete2, delete3);
+        // Dispose the connection
+        SQLProvider.getSingleton().dispose(connection);
+        // Redirects to the main section of events
+        return "redirect:/eventosgeneral";
+    }
+
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "id", "date"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification, @RequestParam(value = "id") int id, @RequestParam(value = "date") String date) {
         /** Requesting to persist the content **/

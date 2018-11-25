@@ -43,8 +43,6 @@ public class EventsCalendarController {
             name = name.replaceAll("_", " ");
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
 
-            System.out.println("MES: " + month + " evento: " + name);
-
             if (!mapping.containsKey(month)) {
                 mapping.put(month, new LinkedList<Triplet<String, String, Long>>());
             }

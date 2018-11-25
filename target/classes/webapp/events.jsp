@@ -215,6 +215,10 @@
                         <input type="submit" value="Editar" />
                     </form:form>
 
+                    <form:form id="editForm" method="post" action="eventos?deleteFlag=true&id=${id}">
+                        <input type="submit" value="Eliminar" />
+                    </form:form>
+
                     <!-- Displaying of the content -->
                     ${content}
 
