@@ -100,6 +100,7 @@
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
         <a href="/noticiasgeneral">Noticias</a>
+        <a href="/eventosgeneral">Eventos</a>
     </div>
 
     <div class="row">

@@ -60,6 +60,37 @@ public class SQLUtils {
     }
 
     /**
+     * Polls a category based on a pattern
+     * @param connection    the connection instance
+     * @param namePattern   the pattern
+     * @return  A set of pairs respective to those in the DB who match the name pattern
+     */
+    public static LinkedList<Pair<Integer, String>> pollCategory(final Connection connection, final String namePattern) {
+        final LinkedList<Pair<Integer, String>> answer = new LinkedList<Pair<Integer, String>>();
+        Statement statement = null;
+        try {
+            final String query = "SELECT * FROM ContentCategory WHERE name LIKE '" + namePattern + "'";
+
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int id = resultSet.getInt("id");
+                answer.add(new Pair<Integer, String>(id, name));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return answer;
+    }
+
+    /**
      * Polls all the updatable content from the web site
      * @param categoryId    the category of the content
      * @param connection    the connection instance
@@ -69,7 +100,7 @@ public class SQLUtils {
         Statement statement = null;
         String data = "";
         try {
-            final String query = "SELECT data FROM Content where categoryId = " + categoryId;
+            final String query = "SELECT data FROM Content WHERE categoryId = " + categoryId;
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
@@ -86,6 +117,7 @@ public class SQLUtils {
         }
         return data;
     }
+
     /**
      * Clears the data in a certain table
      * @param table the table to clear
