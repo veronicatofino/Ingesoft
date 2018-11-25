@@ -106,6 +106,8 @@
         <a href="/aspirantes">Aspirantes</a>
         <a href="/noticiasgeneral">Noticias</a>
         <a href="/eventosgeneral">Eventos</a>
+        <a href="/eventoscalendario">Calendario de eventos</a>
+
     </div>
 
     <div class="row">

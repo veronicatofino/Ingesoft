@@ -101,6 +101,7 @@
         <a href="/aspirantes">Aspirantes</a>
         <a href="/noticiasgeneral">Noticias</a>
         <a href="/eventosgeneral">Eventos</a>
+        <a href="/eventoscalendario">Calendario de eventos</a>
     </div>
 
     <div class="row">
@@ -111,15 +112,13 @@
                     <core:forEach items="${eventsMapping}" var="entry">
                         <tr>
                             <center> <h2> ${entry.key} </h2> </center>
-                        </tr>
-                        <tr>
                             <core:forEach items="${entry.value}" var="pair">
-                                <td>
-                                        <a href="/eventos?id=${pair.getRight()}"><center> <B> Evento: ${pair.getLeft()} </B> <br/>
-                                            <B> Fecha: ${pair.getMid()} </B> </center></a>
-                                </td>
+                                    <a href="/eventos?id=${pair.getRight()}"><center> <B> Evento: ${pair.getLeft()} </B> <br/>
+                                        <B> Fecha: ${pair.getMid()} </B> </center></a>
+                                    <br>
                             </core:forEach>
                         </tr>
+
                     </core:forEach>
                 </table>
             </div>
