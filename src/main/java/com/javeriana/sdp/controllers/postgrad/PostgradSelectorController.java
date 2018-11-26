@@ -14,22 +14,48 @@ import java.sql.Connection;
  * Created by Sebastian on 24/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * Represents the controller used for the postgrad uri
+ * This controller takes care of the persistence and retrieval of the data
  */
 @Controller
 @RequestMapping("/postgrados")
 public class PostgradSelectorController {
 
+    /**
+     * Represents the button name parameter
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the category id for the postgrads
+     */
     private static final int CATEGORY_ID = 3;
+
+    /**
+     * Represents the id of the edit state of this controller
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents the id of the save state of this controller
+     */
     private static final int SAVE_STATE = 0;
 
-    /** Search engine provider **/
+    /**
+     * Search engine provider.
+     * This mapping is used to automate the search engine
+     * @param id    the id provided by the search engine automatic response
+     **/
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
         return defaultRender();
     }
 
+    /**
+     * Performs the edit action over a set of postgrads
+     * @return  the edit view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView editAction() {
         /** Requesting to edit the content **/
@@ -46,6 +72,11 @@ public class PostgradSelectorController {
         return new ModelAndView("postgrad").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE);
     }
 
+    /**
+     * Represents the store action for this controller
+     * @param modification  the new content to be attached to this controller
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification) {
         /** Requesting to persist the content **/
@@ -65,6 +96,10 @@ public class PostgradSelectorController {
         return defaultRender();
     }
 
+    /**
+     * Represents the default view of this controller
+     * @return  the default view of the controller
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to display the content **/

@@ -17,15 +17,33 @@ import java.util.LinkedList;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This controller manages all the general names of the professors
+ * along with persistence and retrieval of the information
  */
 @Controller
 @RequestMapping("/profesoresGeneral")
 public class TeachersController {
 
+    /**
+     * Represents the teacher prefix for the DB queries
+     */
     private static final String TEACHER_PREFIX = "profesor_";
+
+    /**
+     * Represents the parameter for the button
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the edit state of the controller
+     */
     private static final int EDIT_STATE = 1;
 
+    /**
+     * Represents the creation view for the teacher controller
+     * @return  the creation view
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView createTeacher() {
         /** Requesting to edit the content **/
@@ -36,6 +54,11 @@ public class TeachersController {
         return new ModelAndView("teachersGeneral").addObject(BUTTON_TYPE, EDIT_STATE);
     }
 
+    /**
+     * Represents the store action for the teacher controller
+     * @param name  the name of the teacher
+     * @return  the default view controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "name"})
     public ModelAndView storeAction(@RequestParam(value = "name") String name) {
         /** Requesting to persist the content **/
@@ -65,6 +88,10 @@ public class TeachersController {
         return defaultRender();
     }
 
+    /**
+     * Represents the default view of the controller
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to persist the content **/

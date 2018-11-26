@@ -16,15 +16,36 @@ import java.sql.Timestamp;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class manages all the particular data associated with a particular
+ * professor hence the suffix of 'selector'.
+ * This class manages the persistence along with the retrieval and removal of the
+ * professor.
  */
 @Controller
 @RequestMapping("/profesor")
 public class TeachersSelectorController {
 
+    /**
+     * Represents the button type of the button
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the edit state of this controller
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents the save state of this controller
+     */
     private static final int SAVE_STATE = 0;
 
+    /**
+     * Represents the edit action of this controller
+     * @param id    the id of the teacher
+     * @return  the edit view of this teacher
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag", "id"})
     public ModelAndView editAction(@RequestParam(value = "id") int id) {
         /** Requesting to edit the content **/
@@ -41,6 +62,11 @@ public class TeachersSelectorController {
         return new ModelAndView("teachers").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE).addObject("id", id);
     }
 
+    /**
+     * Represents the deletion of a particular professor
+     * @param id    the id of the professor to delete
+     * @return  the general view of this controller after deletion
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"deleteFlag", "id"})
     public String deleteAction(@RequestParam(value = "id") int id) {
         /** Requesting to edit the content **/
@@ -60,6 +86,12 @@ public class TeachersSelectorController {
         return "redirect:/profesoresGeneral";
     }
 
+    /**
+     * Represents the store action of this controller
+     * @param modification  the modification of the data of the current professor
+     * @param id    the id of the professor to be modified
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "id", "modifiedContent"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification, @RequestParam(value = "id") final int id) {
         /** Requesting to persist the content **/
@@ -77,6 +109,11 @@ public class TeachersSelectorController {
         return defaultRender(id);
     }
 
+    /**
+     * Represents the default view of this controller based on an id
+     * @param id    the id of the professor
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView defaultRender(@RequestParam(value = "id") int id) {
         /** Requesting to display the content **/

@@ -2,19 +2,13 @@ package com.javeriana.sdp.controllers.aspirants;
 
 import com.javeriana.sdp.sql.SQLProvider;
 import com.javeriana.sdp.sql.SQLUtils;
-import com.javeriana.sdp.utils.Pair;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * Created by Sebastian on 18/11/18

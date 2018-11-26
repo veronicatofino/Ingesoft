@@ -8,32 +8,54 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 
 /**
  * Created by Sebastian on 18/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
- * todo: Use prepared statements
- * todo: read the todo on the update function
+ *
+ * Handles all the student related controller information.
+ * Persistence along with retrieval of the stored data for the students section
  */
 @Controller
 @RequestMapping("/estudiantes")
 public class StudentsController {
 
+    /**
+     * Represents the parameter for the button
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the id of the category
+     */
     private static final int CATEGORY_ID = 1;
+
+    /**
+     * Represents the edit state flag
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents the save state flag
+     */
     private static final int SAVE_STATE = 0;
 
-    /** Search engine provider **/
+    /**
+     * Search engine provider.
+     * This mapping is used to automate the search engine
+     * @param id    the id provided by the search engine automatic response
+     **/
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
         return defaultRender();
     }
 
+    /**
+     * Represents the edit action for this controller
+     * @return  the edit view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView editAction() {
         /** Requesting to edit the content **/
@@ -50,6 +72,11 @@ public class StudentsController {
         return new ModelAndView("students").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE);
     }
 
+    /**
+     * Represents the store request for this controller
+     * @param modification  the new modified content
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification) {
         /** Requesting to persist the content **/
@@ -69,6 +96,10 @@ public class StudentsController {
         return defaultRender();
     }
 
+    /**
+     * Performs the default render for this controller
+     * @return  the default render view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to display the content **/

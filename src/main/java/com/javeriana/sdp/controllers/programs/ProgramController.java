@@ -14,20 +14,44 @@ import java.sql.Connection;
  * Created by Sebastian on 24/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This controller handles all the program related content along with
+ * the persistence
  */
 @Controller
 @RequestMapping("/programa")
 public class ProgramController {
+
+    /**
+     * Represents the parameter of the button type
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the edit state of this controller
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents the save state of this controller
+     */
     private static final int SAVE_STATE = 0;
 
-    /** Search engine provider **/
+    /**
+     * Search engine provider.
+     * This mapping is used to automate the search engine
+     * @param id    the id provided by the search engine automatic response
+     **/
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
         return defaultRender(id);
     }
 
+    /**
+     * Represents the edit action for this controller based on a course
+     * @param courseId  the id of the course to be edited
+     * @return  the edit view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag", "courseId"})
     public ModelAndView editAction(@RequestParam(value = "courseId") long courseId) {
         /** Requesting to edit the content **/
@@ -48,6 +72,12 @@ public class ProgramController {
         return new ModelAndView("program").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE).addObject("courseId", courseId);
     }
 
+    /**
+     * Represents the store action over an specific course id
+     * @param modification  the modified content for this id
+     * @param courseId  the course id to be modified
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "courseId"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification, @RequestParam(value = "courseId") long courseId) {
         /** Requesting to persist the content **/
@@ -67,6 +97,11 @@ public class ProgramController {
         return defaultRender(courseId);
     }
 
+    /**
+     * Represents the default view for this controller based on a program name
+     * @param name  the name of the program
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.GET, params = {"nombre"})
     public ModelAndView defaultRender(@RequestParam(value = "nombre") String name) {
         /** Requesting to persist the content **/
@@ -86,6 +121,11 @@ public class ProgramController {
         return defaultRender(id);
     }
 
+    /**
+     * Represents the default render of this controller
+     * @param id    the id of the program to be displayed
+     * @return  the default view
+     */
     public ModelAndView defaultRender(final long id) {
         /** Requesting to persist the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
