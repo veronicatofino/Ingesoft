@@ -10,15 +10,9 @@ public class GeneralConstants {
     /** URL's **/
     public static final String BASE_URL = "localhost:8080/";
 
-    /** URI's **/
-    public static final String PHD_URI = "phd.xhtml";
-
-    /** HTML Configurations **/
-    public static final int DEFAULT_PADDING = 2;
-
-    /** Default text **/
-    public static final String AVAILABLE_COURSES_TEXT = "Los cursos disponibles son:";
-    public static final String AVAILABLE_PROGRAMS_TEXT = "Los programas disponibles son:";
+    public static final String ADMIN_KEY = "admin";
+    public static final String SESSION_ATTRIBUTE_TRUE = "true";
+    public static final String SESSION_ATTRIBUTE_FALSE = "false";
 
 
 }

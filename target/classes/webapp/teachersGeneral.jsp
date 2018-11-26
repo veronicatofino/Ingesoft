@@ -101,8 +101,14 @@
         <a href="/aspirantes">Aspirantes</a>
         <a href="/profesoresGeneral">Profesores</a>
         <a href="/eventoscalendario">Calendario de eventos</a>
-        <a href="/noticiasgeneral">Noticias</a>
-        <a href="/eventosgeneral">Eventos</a>
+        <core:if test="${sessionScope.admin=='true'}">
+            <a href="/noticiasgeneral">Noticias</a>
+            <a href="/eventosgeneral">Eventos</a>
+            <a href="/logout">Logout</a>
+        </core:if>
+        <core:if test="${sessionScope.admin=='false'}">
+            <a href="/login">Login</a>
+        </core:if>
     </div>
 
     <div class="row">
@@ -118,9 +124,11 @@
                 </core:if>
 
                 <core:if test="${buttonType=='0'}">
-                    <form:form id="editForm" method="post" action="profesoresGeneral?editFlag=true">
-                        <input type="submit" value="Crear profesor" />
-                    </form:form>
+                    <core:if test="${sessionScope.admin=='true'}">
+                        <form:form id="editForm" method="post" action="profesoresGeneral?editFlag=true">
+                            <input type="submit" value="Crear profesor" />
+                        </form:form>
+                    </core:if>
                     <br>
                     ${content}
                 </core:if>

@@ -61,7 +61,98 @@
     <favorites_list name="SDP" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="eventsGeneral.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/eventsGeneral.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="131" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="news.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/news.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="221" column="20" selection-start-line="221" selection-start-column="20" selection-end-line="223" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="postgrad.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/postgrad.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="209" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="program.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/program.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="209" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teachers.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="99">
+              <caret line="218" column="24" selection-start-line="218" selection-start-column="24" selection-end-line="224" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teachersGeneral.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="129" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsGeneral.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/newsGeneral.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-31">
+              <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="students.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/students.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="219" column="24" selection-start-line="219" selection-start-column="24" selection-end-line="221" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -84,6 +175,9 @@
       <find>modifySelectedTextArea(&quot;</find>
       <find>footer</find>
       <find>redirect:</find>
+      <find>edit</find>
+      <find>crear</find>
+      <find>editar</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers</dir>
@@ -96,10 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/WEB-INF/SDP-servlet.xml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/estudiante/EstudiantesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/estudiante/StudentsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/webapp/aspirante.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/webapp/aspirantes.jsp" />
@@ -118,35 +208,39 @@
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsSelectorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/index/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/utils/Triplet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsCalendarController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachesSelectorController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/aspirant.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/course.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/events.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/eventsCalendar.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/eventsGeneral.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/news.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/newsGeneral.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/students.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/courses/CourseController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/postgrad.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/program.jsp" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/model/Email.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersSelectorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/utils/EmailHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/contact/ContactController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/GeneralConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/index/IndexController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/login/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/logout/LogoutController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/newsGeneral.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/eventsCalendar.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/aspirant.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/course.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/events.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/eventsGeneral.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/news.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/postgrad.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/program.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/students.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp" />
       </list>
     </option>
   </component>
@@ -280,6 +374,26 @@
               <item name="sdp" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sdp" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sdp" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="logout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDP" type="b2602c69:ProjectViewProjectNode" />
@@ -566,6 +680,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294423" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49720672" weight="0.3267974" />
@@ -575,10 +690,10 @@
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32990575" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7557861" visible="true" weight="0.374183" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7557861" visible="true" weight="0.374183" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986945" visible="true" weight="0.264166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4986945" visible="true" weight="0.264166" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
@@ -649,35 +764,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/SDP-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="74" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/GeneralConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SqlTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Escritorio/apache-tomcat-8.5.34/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -756,40 +842,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="24" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/students/StudentsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
           <caret line="22" column="7" selection-start-line="21" selection-start-column="11" selection-end-line="22" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsSelectorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="73" column="28" lean-forward="true" selection-start-line="73" selection-end-line="74" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -803,13 +859,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/index/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -855,76 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/students.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="173" column="45" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/eventsCalendar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="117" column="64" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/course.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="214" column="103" selection-start-line="214" selection-start-column="92" selection-end-line="214" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/eventsGeneral.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/news.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-82">
-          <caret line="175" column="41" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/postgrad.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="72" column="14" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/aspirant.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="106" column="8" selection-start-line="106" selection-start-column="8" selection-end-line="112" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/newsGeneral.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="111" column="20" selection-start-line="111" selection-start-column="20" selection-end-line="116" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="173" column="45" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/aspirants/AspirantController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -952,13 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/events.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="173" column="45" selection-start-line="173" selection-start-column="45" selection-end-line="173" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersSelectorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -976,13 +948,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/program.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="188" column="32" selection-start-line="188" selection-end-line="189" />
         </state>
       </provider>
     </entry>
@@ -1028,13 +993,165 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="17" selection-start-line="17" selection-end-line="18" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsSelectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/login/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="48" column="46" lean-forward="true" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/GeneralConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/index/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-154">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/logout/LogoutController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/aspirant.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="148" column="18" lean-forward="true" selection-start-line="144" selection-start-column="8" selection-end-line="148" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/course.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="221" column="16" selection-start-line="221" selection-start-column="16" selection-end-line="221" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/events.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="221" column="24" selection-start-line="221" selection-start-column="24" selection-end-line="227" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/eventsCalendar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/eventsGeneral.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="131" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="165" column="72" selection-start-line="165" selection-start-column="72" selection-end-line="165" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="151">
+          <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="120" column="18" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/news.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="221" column="20" selection-start-line="221" selection-start-column="20" selection-end-line="223" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/newsGeneral.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="107" column="18" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/postgrad.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="209" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/program.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="207" column="20" selection-start-line="207" selection-start-column="20" selection-end-line="209" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/students.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="219" column="24" selection-start-line="219" selection-start-column="24" selection-end-line="221" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="218" column="24" selection-start-line="218" selection-start-column="24" selection-end-line="224" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="127" column="19" selection-start-line="127" selection-start-column="19" selection-end-line="129" selection-end-column="36" />
         </state>
       </provider>
     </entry>

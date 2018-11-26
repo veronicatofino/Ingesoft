@@ -114,9 +114,14 @@
         <a href="/aspirantes">Aspirantes</a>
         <a href="/profesoresGeneral">Profesores</a>
         <a href="/eventoscalendario">Calendario de eventos</a>
-        <a href="/noticiasgeneral">Noticias</a>
-        <a href="/eventosgeneral">Eventos</a>
-
+        <core:if test="${sessionScope.admin=='true'}">
+            <a href="/noticiasgeneral">Noticias</a>
+            <a href="/eventosgeneral">Eventos</a>
+            <a href="/logout">Logout</a>
+        </core:if>
+        <core:if test="${sessionScope.admin=='false'}">
+            <a href="/login">Login</a>
+        </core:if>
     </div>
 
     <div class="row">
@@ -157,7 +162,6 @@
             </div>
         </div>
     </div>
-
     <div class = "footer">
         <form:form id="editForm" method="post" action="contacto?send=true">
             <!-- Store button -->

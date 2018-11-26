@@ -1,5 +1,6 @@
 package com.javeriana.sdp.controllers.index;
 
+import com.javeriana.sdp.GeneralConstants;
 import com.javeriana.sdp.controllers.news.NewsController;
 import com.javeriana.sdp.sql.SQLProvider;
 import com.javeriana.sdp.sql.SQLUtils;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.LinkedList;
@@ -23,7 +25,7 @@ import java.util.LinkedList;
 public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView get() {
+    public ModelAndView get(HttpServletRequest request) {
         String [] news = new String[4];
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
@@ -44,6 +46,10 @@ public class IndexController {
         }
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
+        // Set the admin flag only the first time
+        if (request.getSession().getAttribute(GeneralConstants.ADMIN_KEY) == null) {
+            request.getSession().setAttribute(GeneralConstants.ADMIN_KEY, GeneralConstants.SESSION_ATTRIBUTE_FALSE);
+        }
         return new ModelAndView("index").addObject("newsArr", news).addObject("eventArr", eventArr);
     }
 }

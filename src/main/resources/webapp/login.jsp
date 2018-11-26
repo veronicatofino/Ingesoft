@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <title>SDP Javeriana Cali</title>
     <style type="text/css">
@@ -52,7 +52,15 @@
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 100%;
+            width: 70%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 30%;
+            background-color: #f1f1f1;
+            padding-left: 20px;
         }
 
         /* Add a card effect for articles */
@@ -67,6 +75,14 @@
             content: "";
             display: table;
             clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
         }
 
         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -84,14 +100,11 @@
                 width: 100%;
             }
         }
-
     </style>
 </head>
 <body>
-
     <div class="header">
         <h1>SDP Javeriana</h1>
-        <p> Bienvenido </p>
     </div>
 
     <div class="topnav">
@@ -112,38 +125,23 @@
     </div>
 
     <div class="row">
-        <div class="leftcolumn">
-            <div class="card">
+        <form:form id="editForm" method="post" action="login?send=true">
+            <!-- Store button -->
+            <center>
+                <br>
+                Usuario: <input type="text" name="user" required>
+                <br>
+                Password: <input type="password" name="password" required>
+                <br>
+                <center><input type="submit" value="Inicia sesion" /></center>
+            </center>
 
-                ${content}
-
-            </div>
-        </div>
+           <center>
+                   ${specialMessage}
+           </center>
+        </form:form>
     </div>
 
-    <script>
-        /** Selection of a piece of text **/
-        document.querySelector('textarea').addEventListener('mouseup', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /**
-         * This happens when the mouse leaves the text area, selection needs to be the same as before
-         * otherwise it is cleared*
-         */
-        document.querySelector('textarea').addEventListener('mouseleave', function () {
-            leftSelection = this.selectionStart;
-            rightSelection = this.selectionEnd;
-        });
-        /** Keyboard listener **/
-        document.querySelector('textarea').addEventListener('keyup', function () {
-            applyLiveChanges();
-        });
-        /** Apply when the page loads **/
-        document.addEventListener("DOMContentLoaded", function() {
-            applyLiveChanges();
-        });
-    </script>
 </body>
 
 </html>
