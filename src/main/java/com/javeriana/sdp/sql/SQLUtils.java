@@ -30,7 +30,7 @@ public class SQLUtils {
     /** This class can't be instantiated **/
     private SQLUtils() { }
 
-    public static void allocateDynamicAttributes(final Connection connection, final String modification, final String attributeTag) {
+    public static void allocateDynamicAttributes(final Connection connection, final String modification, final String attributeTag, final String redirectTag) {
         // Parse and update the current postgrads **/
         String [] parts = modification.split(">");
         String [] subparts = null;
@@ -53,7 +53,7 @@ public class SQLUtils {
                     // Find the category id
                     long id = (Long) (SQLUtils.getDataFromQuery(connection, "SELECT id from ContentCategory WHERE name='" + normalized + "'", "id").get(0)[0]);
                     // Insert it into the content table
-                    SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES('" + id + "', '" + normalized + "')");
+                    SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data, redirect) VALUES('" + id + "', '" + normalized + "', '" + redirectTag + "')");
                 }
             }
         }

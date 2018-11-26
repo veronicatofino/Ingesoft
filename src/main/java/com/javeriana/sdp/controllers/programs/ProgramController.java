@@ -58,7 +58,7 @@ public class ProgramController {
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
         /** dynamically allocating postgrads programs **/
-        SQLUtils.allocateDynamicAttributes(connection, modification.toLowerCase(), "curso?nombre");
+        SQLUtils.allocateDynamicAttributes(connection, modification.toLowerCase(), "curso?nombre", "curso");
         // Execute all the queries
         SQLUtils.executeQueries(connection, "UPDATE Content SET data = '" + modification + "' WHERE categoryId = " + courseId);
         // Free the connection

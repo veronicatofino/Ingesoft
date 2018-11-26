@@ -58,7 +58,7 @@ public class TeachersController {
         // Get the id assigned
         long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='" + name + "'", "id").get(0)[0];
         // Insert into the remaining tables
-        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES ('" + id + "', 'Profesor: " + name + "')");
+        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data, redirect) VALUES ('" + id + "', 'Profesor: " + name + "', 'profesor')");
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
         // Render the changes

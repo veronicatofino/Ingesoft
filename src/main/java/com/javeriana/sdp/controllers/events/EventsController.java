@@ -61,7 +61,7 @@ public class EventsController {
         // Get the id assigned
         long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='" + name + "'", "id").get(0)[0];
         // Insert into the remaining tables
-        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data) VALUES ('" + id + "', 'Evento')");
+        SQLUtils.executeQueries(connection, "INSERT INTO Content (categoryId, data, redirect) VALUES ('" + id + "', 'Evento', 'eventos')");
         SQLUtils.executeQueries(connection, "INSERT INTO Eventos (id, date) VALUES ('" + id + "', '" + time + "')");
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);

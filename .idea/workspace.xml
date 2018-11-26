@@ -62,11 +62,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/search/SearchController.java">
+      <file leaf-file-name="CourseController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/courses/CourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="51" column="102" selection-start-line="51" selection-start-column="102" selection-end-line="51" selection-end-column="102" />
+            <state relative-caret-position="-225">
+              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostgradSelectorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgramController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="60" column="105" selection-start-line="60" selection-start-column="105" selection-end-line="60" selection-end-column="105" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventsController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="63" column="135" selection-start-line="63" selection-start-column="135" selection-end-line="63" selection-end-column="135" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventsSelectorController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,41 +134,11 @@
       <file leaf-file-name="TeachersController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="258">
+              <caret line="60" column="152" selection-start-line="60" selection-start-column="152" selection-end-line="60" selection-end-column="152" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeachersSelectorController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersSelectorController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/search.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="145" column="18" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/index/IndexController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="53" column="5" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -144,6 +171,8 @@
       <find>editar</find>
       <find>like</find>
       <find>LIKE</find>
+      <find>CONTENT</find>
+      <find>INSERT</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers</dir>
@@ -171,8 +200,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/utils/Triplet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsCalendarController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachesSelectorController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/model/Email.java" />
@@ -197,16 +224,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/webapp/teachers.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/webapp/teachersGeneral.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/students/StudentsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/news/NewsSelectorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/courses/CourseController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/webapp/search.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java" />
         <option value="$PROJECT_DIR$/src/main/resources/webapp/course.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/search/SearchController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersSelectorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java" />
       </list>
     </option>
   </component>
@@ -688,7 +717,7 @@
       <window_info anchor="right" id="Palette" order="7" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info id="Image Layers" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7594226" visible="true" weight="0.374183" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7557861" visible="true" weight="0.374183" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="JSF" order="3" weight="0.32990575" />
@@ -698,23 +727,23 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.24057738" side_tool="true" weight="0.374183" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49959904" weight="0.3267974" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.2442139" side_tool="true" weight="0.374183" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3294423" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24939856" />
+      <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.3294423" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32990575" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986945" visible="true" weight="0.2598236" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4986945" visible="true" weight="0.264166" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49720672" weight="0.3267974" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" sideWeight="0.50242716" side_tool="true" weight="0.2598236" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39893618" />
     </layout-to-restore>
   </component>
@@ -797,30 +826,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/aspirants/AspirantController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-448">
           <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/contact/ContactController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,30 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1033#1034#0" expanded="true" />
-            <element signature="e#1071#1072#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/courses/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsCalendarController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1017,28 +1002,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1500#1551#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="923">
-          <caret line="71" column="46" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1072,16 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="70" column="81" lean-forward="true" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLProvider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1089,24 +1042,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="71" column="70" lean-forward="true" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/course.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="234" column="25" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/search.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="145" column="18" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1120,10 +1059,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/webapp/search.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="177">
+          <caret line="145" column="18" selection-start-line="145" selection-start-column="18" selection-end-line="145" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/aspirants/AspirantController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="22" selection-start-line="22" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/contact/ContactController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="30" column="31" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/courses/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1132,8 +1098,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersSelectorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="79" column="22" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
+        <state relative-caret-position="72">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/teachers/TeachersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="60" column="152" selection-start-line="60" selection-start-column="152" selection-end-line="60" selection-end-column="152" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/sql/SQLUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/programs/ProgramController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="60" column="105" selection-start-line="60" selection-start-column="105" selection-end-line="60" selection-end-column="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/postgrad/PostgradSelectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="63" column="135" selection-start-line="63" selection-start-column="135" selection-end-line="63" selection-end-column="135" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/javeriana/sdp/controllers/events/EventsSelectorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
