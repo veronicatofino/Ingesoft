@@ -105,6 +105,13 @@
 <body>
     <div class="header">
         <h1>SDP Javeriana</h1>
+        <br>
+        <core:if test="${sessionScope.admin=='true'}">
+            Bievenido administrador
+        </core:if>
+        <core:if test="${sessionScope.admin=='false'}">
+            Bievenido
+        </core:if>
     </div>
 
     <div class="topnav">
