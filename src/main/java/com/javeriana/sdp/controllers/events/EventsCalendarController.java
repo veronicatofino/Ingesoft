@@ -18,14 +18,30 @@ import java.util.LinkedList;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class is used to provide a fully functional controller to the uri 'eventoscalendario'.
+ * This class takes care of the persistence of the data in his own website along with
+ * displaying it's data.
  */
 @Controller
 @RequestMapping("/eventoscalendario")
 public class EventsCalendarController {
 
+    /**
+     * Represents the maximum number of events per category i.e (enero, febrero, ..)
+     */
+    private static final int MAX_EVENTS_PER_CATEGORY = 5;
+
+    /**
+     * Represents the array of months
+     */
     private static final String [] MONTHS = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
             "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
+    /**
+     * Represents the default view of this controller
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get() {
         // Take a free connection
@@ -39,6 +55,8 @@ public class EventsCalendarController {
             String month = MONTHS[Integer.parseInt(date.split("-")[1]) - 1];
             String name = (String) poll.get(i)[0];
             long id = ((Long) poll.get(i)[2]);
+
+            // evento_ prefix
             name = name.substring(7);
             name = name.replaceAll("_", " ");
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
@@ -47,8 +65,8 @@ public class EventsCalendarController {
                 mapping.put(month, new LinkedList<Triplet<String, String, Long>>());
             }
 
-            // Limit it to 3 events
-            if (mapping.get(month).size() < 3) {
+            // Limit it to N events
+            if (mapping.get(month).size() < MAX_EVENTS_PER_CATEGORY) {
                 mapping.get(month).add(new Triplet<String, String, Long>(name, date, id));
             }
         }

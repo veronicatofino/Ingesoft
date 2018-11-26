@@ -17,17 +17,40 @@ import java.text.SimpleDateFormat;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class handles a singular event hence the name of the selector.
+ * This class purpose is to be able to edit and store modifications to the events
  */
 @Controller
 @RequestMapping("/eventos")
 public class EventsSelectorController {
 
+    /**
+     * Represents the mysql row acceptance format for dates
+     */
     private static final SimpleDateFormat MYSQL_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    /**
+     * Represents the button type tag used for the front end to identify whether or not
+     * the admin is editing
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents a flag indicating that the website is rendering the edit state of the page
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents a flag indicating that the website is rendering the save state of the page
+     */
     private static final int SAVE_STATE = 0;
 
+    /**
+     * Executes the edit action of this controller
+     * @param id    the id of the event to edit
+     * @return  the edit view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag", "id"})
     public ModelAndView editAction(@RequestParam(value = "id") int id) {
         /** Requesting to edit the content **/
@@ -44,6 +67,11 @@ public class EventsSelectorController {
         return new ModelAndView("events").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE).addObject("id", id);
     }
 
+    /**
+     * Executes the delete action of this controller
+     * @param id    the id of the event
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"deleteFlag", "id"})
     public String deleteAction(@RequestParam(value = "id") int id) {
         /** Requesting to edit the content **/
@@ -64,6 +92,13 @@ public class EventsSelectorController {
         return "redirect:/eventosgeneral";
     }
 
+    /**
+     * Represents the processing of the store action of this controller
+     * @param modification  the modified text
+     * @param id    the id of the event
+     * @param date  the date of the event
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "id", "date"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification, @RequestParam(value = "id") int id, @RequestParam(value = "date") String date) {
         /** Requesting to persist the content **/
@@ -88,6 +123,11 @@ public class EventsSelectorController {
         return defaultRender(id);
     }
 
+    /**
+     * Process the default render of this controller
+     * @param id    the id of the event
+     * @return  the default render of the event
+     */
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView defaultRender(@RequestParam(value = "id") int id) {
         /** Requesting to display the content **/

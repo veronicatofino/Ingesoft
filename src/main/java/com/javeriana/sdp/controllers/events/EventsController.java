@@ -18,16 +18,40 @@ import java.util.LinkedList;
  * Created by Sebastian on 24/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class is used to provide a fully functional controller to the uri 'eventosgeneral'.
+ * This class takes care of the persistence of the data in his own website along with
+ * displaying it's data.
  */
 @Controller
 @RequestMapping("/eventosgeneral")
 public class EventsController {
+
+    /**
+     * Represents the mysql row acceptance format for dates
+     */
     private static final SimpleDateFormat MYSQL_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    /**
+     * Represents the event prefix for the db
+     */
     private static final String EVENT_PREFIX = "evento_%";
+
+    /**
+     * Represents the button type tag used for the front end to identify whether or not
+     * the admin is editing
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents a flag indicating that the website is rendering the edit state of the page
+     */
     private static final int EDIT_STATE = 1;
 
+    /**
+     * Processes the create event view
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView createEvent() {
         /** Requesting to edit the content **/
@@ -38,6 +62,12 @@ public class EventsController {
         return new ModelAndView("eventsGeneral").addObject(BUTTON_TYPE, EDIT_STATE);
     }
 
+    /**
+     * Process the store action
+     * @param date  the date of the event
+     * @param name  the name of the event
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag", "date", "name"})
     public ModelAndView storeAction(@RequestParam(value = "date") String date, @RequestParam(value = "name") String name) {
         /** Requesting to persist the content **/
@@ -45,7 +75,7 @@ public class EventsController {
             // Notice this shouldn't happen because we won't have too many requests
             return new ModelAndView("index");
         }
-        // Take the date
+        // Compare the date size i.e if its valid
         if (date.length() == 0) {
             return defaultRender();
         }
@@ -69,6 +99,10 @@ public class EventsController {
         return defaultRender();
     }
 
+    /**
+     * Processes the default view of this controller
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to persist the content **/
@@ -92,7 +126,6 @@ public class EventsController {
                     append(name).
                     append("</h2></a>");
         }
-
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);
         // Render the changes

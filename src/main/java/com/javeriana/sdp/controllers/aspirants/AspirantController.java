@@ -20,22 +20,50 @@ import java.util.Map;
  * Created by Sebastian on 18/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class is used to provide a fully functional controller to the uri 'aspirantes'.
+ * This class takes care of the persistence of the data in his own website along with
+ * displaying it's data.
  */
 @Controller
 @RequestMapping("/aspirantes")
 public class AspirantController {
 
+    /**
+     * Represents the button type tag used for the front end to identify whether or not
+     * the admin is editing
+     */
     private static final String BUTTON_TYPE = "buttonType";
+
+    /**
+     * Represents the aspirant category id
+     */
     private static final int CATEGORY_ID = 2;
+
+    /**
+     * Represents a flag indicating that the website is rendering the edit state of the page
+     */
     private static final int EDIT_STATE = 1;
+
+    /**
+     * Represents a flag indicating that the website is rendering the save state of the page
+     */
     private static final int SAVE_STATE = 0;
 
-    /** Search engine provider **/
+    /**
+     * Search engine provider.
+     * This mapping is used to automate the search engine
+     * @param id    the id provided by the search engine automatic response
+     **/
     @RequestMapping(method = RequestMethod.GET, params = {"id"})
     public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
         return defaultRender();
     }
 
+    /**
+     * Represents the edit action
+     * @return  the edit view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView editAction() {
         /** Requesting to edit the content **/
@@ -52,6 +80,11 @@ public class AspirantController {
         return new ModelAndView("aspirant").addObject("editableContent", content).addObject(BUTTON_TYPE, SAVE_STATE);
     }
 
+    /**
+     * Represents the store action
+     * @param modification  the new modifed content string
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"storeFlag"})
     public ModelAndView storeAction(@RequestParam(value = "modifiedContent") String modification) {
         /** Requesting to persist the content **/
@@ -69,6 +102,10 @@ public class AspirantController {
         return defaultRender();
     }
 
+    /**
+     * Represent the default rendering provided by this controller
+     * @return  the default view of this controller
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to display the content **/

@@ -19,11 +19,18 @@ import java.util.LinkedList;
  * Created by Sebastian on 18/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class manages the back end of the index of the website
  */
 @Controller
 @RequestMapping("/")
 public class IndexController {
 
+    /**
+     * Process the default get of this controller
+     * @param request   the request instance to provide specific session attributes
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get(HttpServletRequest request) {
         String [] news = new String[4];

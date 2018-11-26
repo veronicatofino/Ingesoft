@@ -12,11 +12,19 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class takes care of the logout process of the website
  */
 @Controller
 @RequestMapping("/logout")
 public class LogoutController {
 
+    /**
+     * The logout view redirects to the index
+     * This controller must only remove the admin attribute
+     * @param request   the http request
+     * @return  the view of the index page
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender(HttpServletRequest request) {
         // Set the session attribute to false

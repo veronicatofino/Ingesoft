@@ -13,13 +13,22 @@ import java.sql.Connection;
  * Created by Sebastian on 24/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class provides a general view of all the news and its information
  */
 @Controller
 @RequestMapping("/noticiasgeneral")
 public class NewsController {
 
+    /**
+     * Represents the new category id
+     */
     private static final int CATEGORY_ID = 4;
 
+    /**
+     * Represents the default view of the news controller
+     * @return the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         /** Requesting to persist the content **/

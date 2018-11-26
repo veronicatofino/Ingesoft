@@ -17,17 +17,31 @@ import java.util.LinkedList;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class manages the login controller and handles all the input validation
+ * required by the login
  */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 
+    /**
+     * Default render view
+     * @return  the default view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView defaultRender() {
         // Render the changes
         return new ModelAndView("login");
     }
 
+    /**
+     * This request provides full validation of the login
+     * @param request   the http request
+     * @param username  the username
+     * @param password  the password
+     * @return  the default view based on the correct or wrong parameters
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"send"})
     public ModelAndView attemptLogin(HttpServletRequest request, @RequestParam(value = "user") String username, @RequestParam(value = "password") String password) {
         /** Requesting to persist the content **/

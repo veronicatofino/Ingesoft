@@ -12,11 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by Sebastian on 25/11/18
  * Email: Juan.2114@hotmail.com
  * Email: Juan2114@javerianacali.edu.co
+ *
+ * This class is used to provide a fully functional controller to the uri 'contacto'.
+ * This class takes care of the email service that communicates with the admin
  */
 @Controller
 @RequestMapping("/contacto")
 public class ContactController {
 
+    /**
+     * This request is used to provide an email to the email handler to execute
+     * the email sending action
+     * @param name  the name of the person
+     * @param message   the message of the person
+     * @param emailTxt  the email of the person
+     * @return  the view of the index
+     */
     @RequestMapping(method = RequestMethod.POST, params = {"send"})
     public String postMessage(@RequestParam(value = "name") String name,
                                       @RequestParam(value = "message") String message,
