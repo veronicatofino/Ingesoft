@@ -22,6 +22,12 @@ public class ProgramController {
     private static final int EDIT_STATE = 1;
     private static final int SAVE_STATE = 0;
 
+    /** Search engine provider **/
+    @RequestMapping(method = RequestMethod.GET, params = {"id"})
+    public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
+        return defaultRender(id);
+    }
+
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag", "courseId"})
     public ModelAndView editAction(@RequestParam(value = "courseId") long courseId) {
         /** Requesting to edit the content **/

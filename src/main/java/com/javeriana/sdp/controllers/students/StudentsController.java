@@ -28,6 +28,12 @@ public class StudentsController {
     private static final int EDIT_STATE = 1;
     private static final int SAVE_STATE = 0;
 
+    /** Search engine provider **/
+    @RequestMapping(method = RequestMethod.GET, params = {"id"})
+    public ModelAndView renderSearchProvider(@RequestParam(value = "id") int id) {
+        return defaultRender();
+    }
+
     @RequestMapping(method = RequestMethod.POST, params = {"editFlag"})
     public ModelAndView editAction() {
         /** Requesting to edit the content **/
