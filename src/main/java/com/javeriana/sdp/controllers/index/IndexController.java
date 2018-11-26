@@ -4,6 +4,7 @@ import com.javeriana.sdp.GeneralConstants;
 import com.javeriana.sdp.controllers.news.NewsController;
 import com.javeriana.sdp.sql.SQLProvider;
 import com.javeriana.sdp.sql.SQLUtils;
+import com.javeriana.sdp.utils.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,23 +34,27 @@ public class IndexController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView get(HttpServletRequest request) {
-        String [] news = new String[4];
+        String [][] news = new String[4][2];
         // Take a free connection
         final Connection connection = SQLProvider.getSingleton().take();
         // Poll the 'news' content
         for (int i = 1; i < 5; ++ i) {
             long id = (Long) SQLUtils.getDataFromQuery(connection, "SELECT id FROM ContentCategory WHERE name='noticias_" + i + "'", "id").get(0)[0];
             String content = SQLUtils.pollContent((int) id, connection);
-            news[i - 1] = content.replaceAll("\n", "<br/>");
+            content = StringUtils.removeImages(content);
+            content = content.substring(0, content.length() >> 1) + "...";
+            news[i - 1][0] = String.valueOf(id);
+            news[i - 1][1] = content.replaceAll("\n", "<br/>");
         }
         // Poll the 'events' content
-        int limitVals = 2;
+        int limitVals = 3;
         String query = "SELECT data, date from Content INNER JOIN Eventos ON (id = categoryId) WHERE date >= now() ORDER BY date ASC LIMIT " + limitVals;
         final LinkedList<Object []> poll = SQLUtils.getDataFromQuery(connection, query, "data", "date");
         String [][] eventArr = new String[limitVals][2];
-        for (int i = 0; i < 2; ++ i) {
+        for (int i = 0; i < limitVals; ++ i) {
             eventArr[i][0] = ((Timestamp)poll.get(i)[1]).toString().split(" ")[0];
             eventArr[i][1] = (String) poll.get(i)[0];
+            eventArr[i][1] = StringUtils.removeImages(eventArr[i][1]);
         }
         // Free the connection
         SQLProvider.getSingleton().dispose(connection);

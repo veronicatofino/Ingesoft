@@ -43,6 +43,8 @@ public class SearchController {
      */
     @RequestMapping(method = RequestMethod.POST, params = {"search"})
     public ModelAndView doSearch(@RequestParam(value = "word") String word) {
+        System.out.println("ENTRO!!!");
+
         /** Requesting to persist the content **/
         if (!SQLProvider.getSingleton().hasFreeConnections()) {
             // Notice this shouldn't happen because we won't have too many requests

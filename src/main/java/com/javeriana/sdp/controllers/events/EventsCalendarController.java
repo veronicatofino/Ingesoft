@@ -30,7 +30,7 @@ public class EventsCalendarController {
     /**
      * Represents the maximum number of events per category i.e (enero, febrero, ..)
      */
-    private static final int MAX_EVENTS_PER_CATEGORY = 5;
+    private static final int MAX_EVENTS_PER_CATEGORY = 3;
 
     /**
      * Represents the array of months
