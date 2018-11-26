@@ -1,13 +1,78 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
 <head>
     <title>SDP Javeriana Cali</title>
+    <script>
+        var leftSelection;
+        var rightSelection;
+
+        function modifySelectedTextArea(openTag, closeTag) {
+            size = document.getElementById("textarea").value.length;
+            modifiedPart = document.getElementById("textarea").value;
+            modifiedPart = modifiedPart.substring(leftSelection, rightSelection);
+            modifiedPart = "<" + openTag  + ">" + modifiedPart + "</" + closeTag  + ">";
+            firstPart = document.getElementById("textarea").value.substring(0, leftSelection);
+            secondPart = document.getElementById("textarea").value.substring(rightSelection, size);
+            document.getElementById("textarea").value = firstPart + modifiedPart + secondPart;
+        }
+
+        function negrilla() {
+            modifySelectedTextArea("B", "B");
+
+            applyLiveChanges();
+        }
+
+        function tema() {
+            modifySelectedTextArea("h1", "h1");
+
+            applyLiveChanges();
+        }
+
+        function subtema() {
+            modifySelectedTextArea("p style=\"padding-left: 2em; display:inline\"", "p");
+
+            applyLiveChanges();
+        }
+
+        function link() {
+            var link = prompt("Digite el link:", "");
+            modifySelectedTextArea("a href=\"" + link + "\"", "a");
+
+            applyLiveChanges();
+        }
+
+        function imagen() {
+            var link = prompt("Digite el link de la imagen:", "");
+            modifySelectedTextArea("img src=\"" + link + "\"", "img");
+
+            applyLiveChanges();
+        }
+
+        function centrar() {
+            modifySelectedTextArea("center", "center");
+
+            applyLiveChanges();
+        }
+
+        function derecha() {
+            modifySelectedTextArea("div style=\"text-align: right;\"", "div");
+
+            applyLiveChanges();
+        }
+
+        function applyLiveChanges() {
+            /** Pick up the table **/
+            var table = document.getElementById("tableId");
+            /** Ineficient perhaps?, replace newlines by html new line **/
+            var textArea = document.getElementById("textarea").value;
+            textArea = textArea.replace(/\n/g, "<br/>");
+            /** Render the changes **/
+            document.getElementById("realtimediv").innerHTML = textArea;
+        }
+
+    </script>
     <style type="text/css">
         * {
             box-sizing: border-box;
@@ -56,38 +121,7 @@
         /* Left column */
         .leftcolumn {
             float: left;
-            width: 75%;
-        }
-
-        /* Right column */
-        .rightcolumn {
-            float: left;
-            width: 25%;
-            background-color: #f1f1f1;
-            padding-left: 20px;
-        }
-
-        /* Fake image */
-        .fakeimg {
-            background-color: azure;
             width: 100%;
-            padding: 20px;
-        }
-
-        .img_pnp {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://i.ytimg.com/vi/YX40hbAHx3s/maxresdefault.jpg");
-            background-size: 500px 200px;
-            padding: 20px;
-        }
-
-        .img_abet {
-            background-color: #aaa;
-            width: 100%;
-            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScKIzoptwk33zuZyawPorbm3vi2TLRdw_5woEZNFW60gjAm11nhQ");
-            background-size: 243px 200px;
-            padding: 20px;
         }
 
         /* Add a card effect for articles */
@@ -102,14 +136,6 @@
             content: "";
             display: table;
             clear: both;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background: #ddd;
-            margin-top: 20px;
         }
 
         /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -127,50 +153,115 @@
                 width: 100%;
             }
         }
+
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>SDP Javeriana</h1>
-        <br>
-        <core:if test="${sessionScope.admin=='true'}">
-            Bievenido administrador
-        </core:if>
-        <core:if test="${sessionScope.admin=='false'}">
-            Bievenido
-        </core:if>
-    </div>
 
-    <div class="topnav">
-        <a href="/">Inicio</a>
-        <a href="/estudiantes">Estudiantes</a>
-        <a href="/postgrados">Postgrados</a>
-        <a href="/aspirantes">Aspirantes</a>
-        <a href="/profesoresGeneral">Profesores</a>
-        <a href="/eventoscalendario">Calendario de eventos</a>
-        <core:if test="${sessionScope.admin=='true'}">
-            <a href="/noticiasgeneral">Noticias</a>
-            <a href="/eventosgeneral">Eventos</a>
-            <a href="/logout">Logout</a>
-        </core:if>
-        <core:if test="${sessionScope.admin=='false'}">
-            <a href="/login">Login</a>
-        </core:if>
-    </div>
+<div class="header">
+    <h1>SDP Javeriana</h1>
+    <br>
+    <core:if test="${sessionScope.admin=='true'}">
+        Bievenido administrador
+    </core:if>
+    <core:if test="${sessionScope.admin=='false'}">
+        Bievenido
+    </core:if>
+</div>
 
-    <div class="row">
-        <div class="leftcolumn">
-            <div class="card">
-                <core:forEach var="entry" items="${composition}">
-                    <h2> ${entry.key} </h2>
-                    <core:forEach var="pair" items="${entry.value}">
-                        <a style="padding-left: 2em" href="${pair.right}">${pair.left}.</a>
-                        </br>
-                    </core:forEach>
-                </core:forEach>
-            </div>
+<div class="topnav">
+    <a href="/">Inicio</a>
+    <a href="/estudiantes">Estudiantes</a>
+    <a href="/postgrados">Postgrados</a>
+    <a href="/aspirantes">Aspirantes</a>
+    <a href="/profesoresGeneral">Profesores</a>
+    <a href="/busqueda">Busqueda</a>
+    <core:if test="${sessionScope.admin=='true'}">
+        <a href="/noticiasgeneral">Noticias</a>
+        <a href="/eventosgeneral">Eventos</a>
+        <a href="/logout">Logout</a>
+    </core:if>
+    <core:if test="${sessionScope.admin=='false'}">
+        <a href="/login">Login</a>
+    </core:if>
+</div>
+
+<div class="row">
+    <div class="leftcolumn">
+        <div class="card">
+
+            <!-- Edit of the content -->
+            <core:if test="${buttonType=='0'}">
+                <form:form id="editForm" method="post" action="aspirantes?storeFlag=true">
+                    <!-- Store button -->
+                    <center><input type="submit" value="Guardar" /></center>
+                    <br>
+                    <center>
+                        <button type="button" onclick=negrilla()>Negrilla</button>
+                        <button type="button" onclick=tema()>Tema</button>
+                        <button type="button" onclick=subtema()>Subtema</button>
+                        <button type="button" onclick=centrar()>Centrar</button>
+                        <button type="button" onclick=derecha()>Derecha</button>
+                        <button type="button" onclick=link()>Link</button>
+                        <button type="button" onclick=imagen()>Imagen</button>
+                    </center>
+                    <br/>
+                    <!-- Edit of the content -->
+                    <table style="width:100%" id = "tableId">
+                        <tr>
+                            <td>
+                                <textarea name="modifiedContent" class="textarea" id="textarea" style="height: 725px; width: 600px"><core:out value="${editableContent}"/></textarea>
+                            </td>
+                            <td>
+                                <div id="realtimediv" align="left" style="height: 725px; overflow: auto; width:85%; margin:0; padding:0"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </form:form>
+            </core:if>
+
+            <!-- Displaying of the content -->
+            <core:if test="${buttonType=='1'}">
+                <core:if test="${sessionScope.admin=='true'}">
+                    <form:form id="editForm" method="post" action="aspirantes?editFlag=true">
+                        <input type="submit" value="Editar" />
+                    </form:form>
+                </core:if>
+
+                <!-- Displaying of the content -->
+                ${content}
+
+            </core:if>
+
+
+
         </div>
     </div>
+</div>
+
+<script>
+    /** Selection of a piece of text **/
+    document.querySelector('textarea').addEventListener('mouseup', function () {
+        leftSelection = this.selectionStart;
+        rightSelection = this.selectionEnd;
+    });
+    /**
+     * This happens when the mouse leaves the text area, selection needs to be the same as before
+     * otherwise it is cleared*
+     */
+    document.querySelector('textarea').addEventListener('mouseleave', function () {
+        leftSelection = this.selectionStart;
+        rightSelection = this.selectionEnd;
+    });
+    /** Keyboard listener **/
+    document.querySelector('textarea').addEventListener('keyup', function () {
+        applyLiveChanges();
+    });
+    /** Apply when the page loads **/
+    document.addEventListener("DOMContentLoaded", function() {
+        applyLiveChanges();
+    });
+</script>
 </body>
 
 </html>

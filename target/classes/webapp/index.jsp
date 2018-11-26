@@ -120,7 +120,7 @@
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
         <a href="/profesoresGeneral">Profesores</a>
-        <a href="/eventoscalendario">Calendario de eventos</a>
+        <a href="/busqueda">Busqueda</a>
         <core:if test="${sessionScope.admin=='true'}">
             <a href="/noticiasgeneral">Noticias</a>
             <a href="/eventosgeneral">Eventos</a>
@@ -151,7 +151,7 @@
         </div>
         <div class="rightcolumn">
             <div class="card">
-                <h1>Eventos</h1>
+                <h1><a href="/eventoscalendario">Eventos</a></h1>
             </div>
             <div class="card">
                 <div style="height: 725px; overflow: auto; width:100%; margin:0; padding:0">

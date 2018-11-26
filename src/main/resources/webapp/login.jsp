@@ -113,7 +113,7 @@
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
         <a href="/profesoresGeneral">Profesores</a>
-        <a href="/eventoscalendario">Calendario de eventos</a>
+        <a href="/busqueda">Busqueda</a>
         <core:if test="${sessionScope.admin=='true'}">
             <a href="/noticiasgeneral">Noticias</a>
             <a href="/eventosgeneral">Eventos</a>
@@ -132,6 +132,7 @@
                 Usuario: <input type="text" name="user" required>
                 <br>
                 Password: <input type="password" name="password" required>
+                <br>
                 <br>
                 <center><input type="submit" value="Inicia sesion" /></center>
             </center>

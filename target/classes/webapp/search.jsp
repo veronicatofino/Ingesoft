@@ -120,7 +120,7 @@
         <a href="/postgrados">Postgrados</a>
         <a href="/aspirantes">Aspirantes</a>
         <a href="/profesoresGeneral">Profesores</a>
-        <a href="/eventoscalendario">Calendario de eventos</a>
+        <a href="/busqueda">Busqueda</a>
         <core:if test="${sessionScope.admin=='true'}">
             <a href="/noticiasgeneral">Noticias</a>
             <a href="/eventosgeneral">Eventos</a>
@@ -131,25 +131,23 @@
         </core:if>
     </div>
 
-    <core:if test="${buttonType=='0'}">
         <div class="row">
             <form:form id="editForm" method="post" action="busqueda?search=true">
                 <!-- Store button -->
-                <center><input type="submit" value="Buscar!" /></center>
                 <br>
-                Palabra a buscar: <input type="text" name="word" required>
-                <br><br>
+                <center>
+                    Palabra a buscar: <input type="text" name="word" required>
+                    <br>
+                    <br>
+                    <input type="submit" value="Buscar!" />
+                </center>
             </form:form>
+
+            <!-- Displaying of the content -->
+            ${result}
         </div>
 
-        <!-- Displaying of the content -->
-        ${content}
-    </core:if>
 
-    <core:if test="${buttonType=='1'}">
-        <!-- Displaying of the content -->
-        ${result}
-    </core:if>
 
 </body>
 
