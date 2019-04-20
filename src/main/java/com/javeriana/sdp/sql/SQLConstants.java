@@ -1,9 +1,8 @@
 package com.javeriana.sdp.sql;
 
 /**
- * Created by Sebastian on 21/11/18
- * Email: Juan.2114@hotmail.com
- * Email: Juan2114@javerianacali.edu.co
+ * Created by Daniel Mamian on 18/11/18
+ * Email: danimaster99@hotmail.com
  *
  * This class manages the constant values for the SQL related stuff
  */
@@ -22,7 +21,7 @@ public class SQLConstants {
     /**
      * Represents the database name
      */
-    public static final String DATABASE_NAME = "SDP";
+    public static final String DATABASE_NAME = "laura";
 
     /**
      * Represents the username of the database

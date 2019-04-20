@@ -20,7 +20,7 @@ public class SQLProvider {
     /**
      * Constructs the default recommended pool of sql connections
      */
-    private static final int DEFAULT_CONNECTIONS = 3;
+    private static final int DEFAULT_CONNECTIONS = 5;
 
     /**
      * Constructs a singleton of the SQL Provider

@@ -22,12 +22,12 @@ public class SqlTest {
 
     public static void main(String[] args) throws SQLException {
         final Connection connection = DriverManager.getConnection("jdbc:mysql://" + "localhost" + ":3306/" + "SDP", "root", "");
-        final String query = "SELECT * FROM RESOURCESSECTION";
+        final String query = "SELECT * FROM Eventos";
         final Statement statement = connection.createStatement();
         final ResultSet resultSet = statement.executeQuery(query);
         while (resultSet.next()) {
             int id = resultSet.getInt("Id");
-            final String name = resultSet.getString("Name");
+            final String name = resultSet.getString("date");
             System.out.println("ID: " + id + " NAME: " + name);
         }
     }
