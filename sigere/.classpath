@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/activiti-form-api-6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/activiti-form-model-6.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/jackson-annotations-2.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/jackson-core-2.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/jackson-databind-2.7.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/jdbc-oracle.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/mysql-connector-java-8.0.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/ojdbc6-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/org.eclipse.osgi_3.13.400.v20190318-1712.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-aop-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-beans-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-context-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-context-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-core-4.3.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-core-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-expression-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-jcl-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-web-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-webmvc-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/VERONICA/Desktop/Universidad 2019-1/Ingesoft/ProyectoFinal/Jar Usados/Jar Usados/spring-webmvc-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
