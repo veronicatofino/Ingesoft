@@ -36,9 +36,9 @@ public class WelcomeController {
 		
 		final StringBuilder builder = new StringBuilder();
 		for (Project p : projects) {
-			builder.append("<a href = \"project?id=" + p.getId() + "\">").append(p.getName()).append("</a></br>");
-		}
-	    return new ModelAndView("welcome").addObject("projects", builder.toString());
+			builder.append("<div class=\"column project\"> </br> <div class=\"content\"> <img src=\"https://static.thenounproject.com/png/213124-200.png\" alt=\"Market\" style=\"width:50%; float:center\"> </br>").append("<a href = \"project?id=" + p.getId() + "\">").append(p.getName()).append("</a></br>").append("</div> </br> </div>");
+			}
+	    return new ModelAndView("welcome").addObject("projects", builder.toString()).addObject("firstname",user.getFirstname());
 	  }
 	
 }
